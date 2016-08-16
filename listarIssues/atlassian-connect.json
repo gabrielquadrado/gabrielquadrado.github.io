@@ -2,7 +2,7 @@
     "name": "MonitoraTec - Lista de issues",
     "description": "Exibe em uma lista todas as issues",
     "key": "listar-issues",
-    "baseUrl": "https://raw.githubusercontent.com/gabrielquadrado/listarIssues/",
+    "baseUrl": "https://gabrielquadrado.github.io/listarIssues/",
     "vendor": {
         "name": "Gabriel Quadrado",
         "url": "https://www.fb.com/gabrielfquadrado"

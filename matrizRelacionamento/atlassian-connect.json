@@ -2,7 +2,7 @@
     "name": "MonitoraTec - Matriz de relacionamento",
     "description": "Exibe uma matriz que mostra o relacionamento entre issues",
     "key": "matriz-relacionamento",
-    "baseUrl": "https://7ceba6b5.ngrok.io/atlastutorial/matrizRelacionamento/",
+    "baseUrl": "https://gabrielquadrado.github.io/matrizRelacionamento/",
     "vendor": {
         "name": "Gabriel Quadrado",
         "url": "https://www.fb.com/gabrielfquadrado"

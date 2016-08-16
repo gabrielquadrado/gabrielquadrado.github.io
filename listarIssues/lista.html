@@ -21,7 +21,7 @@
                 <script src="https://gabrielquadrado.github.io/listarIssues/1.js" type="text/javascript"></script>
                 <script type="text/javascript">$(document).ready(function(){
 					$.getJSON('https://gabrielquadrado.github.io/listarIssues/issue.json', function(issue){
-				  	$.post('https://gabrielquadrado.atlassian.net/rest/api/latest/issue?os_username=admin&os_password=atlassian123',issue);
+				  	$.post('https://gabrielquadrado.atlassian.net/rest/api/latest/issue?os_username=admin&os_password=atlassian123');
 				  	});
 					});
 				</script>

@@ -1,4 +1,4 @@
-var userAndPassword = "os_username=quadrado&os_password=gafiqua123";
+var userAndPassword = "os_username=quadrado&os_password=atlassian123";
 $(document).ready(function(){
 	$.getJSON('https://monitoratecnologia.atlassian.net/rest/api/latest/project?'+userAndPassword, function(projects){
 	    var i;

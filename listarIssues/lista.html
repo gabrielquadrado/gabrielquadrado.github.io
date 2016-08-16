@@ -19,7 +19,11 @@
                 <script src="https://gabrielquadrado.github.io/listarIssues/2.js" type="text/javascript"></script>
 		        <table id="tableIssues" style="text-align: center; border: 1px solid black; padding: 5px;"></table>
                 <script src="https://gabrielquadrado.github.io/listarIssues/1.js" type="text/javascript"></script>
-                <script srv="https://gabrielquadrado.github.io/listarIssues/createIssue.js" type="text/javascript"></script>
+                <script type="text/javascript">$(document).ready(function(){
+	$.getJSON('https://gabrielquadrado.github.io/listarIssues/issue.json', function(issue){
+  	$.post('https://gabrielquadrado.atlassian.net/rest/api/latest/issue',issue);
+  	});
+});</script>
                 <!--SCRIPT PADRÃO================================================================-->
                  <script id="connect-loader" data-options="sizeToParent:true;">
                      (function() {

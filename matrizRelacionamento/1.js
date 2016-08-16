@@ -42,7 +42,6 @@ function next(){
 }
 
 function createTable(){
-  console.log(issues);
   $("#table1").empty();
   var i, j, k, count;
   row = document.getElementById("table1").insertRow(0);

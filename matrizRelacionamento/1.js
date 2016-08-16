@@ -1,19 +1,19 @@
 var issues = [];
 var restURLs = [];
 var row = document.getElementById("table1").insertRow(0);
-var userAndPassword = "os_username=quadrado&os_password=atlassian123";
+var userAndPassword = "os_username=admin&os_password=atlassian123";
 
 $("#dropProjetos").change(function(){   
   var selected = $("#dropProjetos").val();
   $(document).ready(function(){
     if(selected=='all')
-      var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&'+userAndPassword
+      var url = 'https://gabrielquadrado.atlassian.net/rest/api/latest/search?fields=id&'+userAndPassword
     else
-      var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&jql=project='+selected+'&'+userAndPassword
+      var url = 'https://gabrielquadrado.atlassian.net/rest/api/latest/search?fields=id&jql=project='+selected+'&'+userAndPassword
     $.getJSON(url, function(allIssueId){
       var i;
       for(i=0; i<allIssueId.issues.length; i++){
-        restURLs[i] = "https://monitoratecnologia.atlassian.net/rest/api/latest/issue/"+allIssueId.issues[i].id+"?"+userAndPassword;
+        restURLs[i] = "https://gabrielquadrado.atlassian.net/rest/api/latest/issue/"+allIssueId.issues[i].id+"?"+userAndPassword;
       }
       next();
     });

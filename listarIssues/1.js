@@ -29,7 +29,7 @@ function arrayReset(){
 function resquest(url){
   $.getJSON(url,function(data){
     issues.push(data);
-    setTimeout(next,50);
+    setTimeout(next,100);
   })
 }
 

@@ -71,7 +71,7 @@ function createTable(){
     row.cells[0].bgColor="#CFCFCF"
     var last=issues.length-1;
     for(j=0; j<issues[i].fields.issuelinks.length; j++){
-      if(issues[i].fields.issuelinks.length>0)
+      if(issues[i].fields.issuelinks.length>1)
         orderLinks(issues[i]);
 	    if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
 	    	if(issues[i].fields.issuelinks[j].outwardIssue.key == issues[last].key){

@@ -22,6 +22,8 @@ $("#dropProjetos").change(function(){
         "&fields=id, key, issuelinks"+"&jql=project="+selected;
         $.getJSON(url, function(data){
             for(i=0; i<total; i++){
+              if(data.issues[i].fields.issues.length==0)
+                continue;
               issues[i]=data.issues[i];
             }
             createTable();

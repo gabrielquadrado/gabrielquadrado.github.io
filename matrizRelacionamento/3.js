@@ -59,7 +59,7 @@ function createTable(){
   var i, j, k, count;
   row = document.getElementById("table1").insertRow(0);
   row.insertCell().innerHTML="";
-  for(i=issues.length-1; i>=0; i--)
+  for(i=issues.length-2; i>=0; i--)
     row.insertCell().innerHTML=issues[i].key;
   $("#table1 tbody tr")[0].bgColor="#CFCFCF";
   for(i=0; i<issues.length; i++){

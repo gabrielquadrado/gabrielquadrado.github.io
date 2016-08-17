@@ -116,7 +116,7 @@ function createTable(){
 function orderLinks(issue){
   var i, temp;
   var order = [];
-  for(i=0; i<=issue.fields.issuelinks.length; i++){
+  for(i=0; i<issue.fields.issuelinks.length; i++){
     if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
       if(typeof(issue.fields.issuelinks[i+1])!='undefined'){
         if(issue.fields.issuelinks[i+1].hasOwnProperty("outwardIssue")==true){

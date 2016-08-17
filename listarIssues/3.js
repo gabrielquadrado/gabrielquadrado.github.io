@@ -14,16 +14,20 @@ $("#dropProjetos").change(function(){
       var url = 'https://gabrielquadrado.atlassian.net/rest/api/latest/search?fields=id&jql=project='+selected+'&'+userAndPassword;
     $.getJSON(url, function(ids){
       var total = ids.total;
-      url = "https://gabrielquadrado.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
+      if(selected=='all')
+        var url = "https://gabrielquadrado.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
+        "&fields=id, key, issuetype, summary, description, status";
+      else
+        var url = "https://gabrielquadrado.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
         "&fields=id, key, issuetype, summary, description, status"+"&jql=project="+selected;
-      $.getJSON(url, function(data){
-          for(i=0; i<total; i++){
-            issues[i]=data.issues[i];
-          }
-          createTable();
-          console.log(data);
-        })
-    })
+        $.getJSON(url, function(data){
+            for(i=0; i<total; i++){
+              issues[i]=data.issues[i];
+            }
+            createTable();
+            console.log(data);
+          });
+    });
   });
 });
 

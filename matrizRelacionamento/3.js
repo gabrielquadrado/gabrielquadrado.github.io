@@ -16,7 +16,7 @@ $("#dropProjetos").change(function(){
       var total = ids.total;
       if(selected=='all')
         var url = "https://gabrielquadrado.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
-        "&fields=id, key, issuetype, summary, description, status";
+        "&fields=id, key, issuelinks";
       else
         var url = "https://gabrielquadrado.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
         "&fields=id, key, issuelinks"+"&jql=project="+selected;

@@ -116,38 +116,38 @@ function orderLinks(issue){
   var i, temp;
   var order = [];
   for(i=0; i<=issue.fields.issuelinks.length; i++){
-    if(issues.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
-      if(typeof(issues.fields.issuelinks[i+1])!='undefined'){
-        if(issues.fields.issuelinks[i+1].hasOwnProperty("outwardIssue")==true){
-          if(issues.fields.issuelinks[i+1].type.outward<issues.fields.issuelinks[i].type.outward){
-            temp = issues.fields.issuelinks[i];
-            issues.fields.issuelinks[i]=issues.fields.issuelinks[i+1];
-            issues.fields.issuelinks[i+1]=temp;
+    if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
+      if(typeof(issue.fields.issuelinks[i+1])!='undefined'){
+        if(issue.fields.issuelinks[i+1].hasOwnProperty("outwardIssue")==true){
+          if(issue.fields.issuelinks[i+1].type.outward<issue.fields.issuelinks[i].type.outward){
+            temp = issue.fields.issuelinks[i];
+            issue.fields.issuelinks[i]=issue.fields.issuelinks[i+1];
+            issue.fields.issuelinks[i+1]=temp;
           }
         }
         else{
-          if(issues.fields.issuelinks[i+1].type.inward<issues.fields.issuelinks[i].type.outward){
-            temp = issues.fields.issuelinks[i];
-            issues.fields.issuelinks[i]=issues.fields.issuelinks[i+1];
-            issues.fields.issuelinks[i+1]=temp;
+          if(issue.fields.issuelinks[i+1].type.inward<issue.fields.issuelinks[i].type.outward){
+            temp = issue.fields.issuelinks[i];
+            issue.fields.issuelinks[i]=issue.fields.issuelinks[i+1];
+            issue.fields.issuelinks[i+1]=temp;
           }
         }
       }
     }
     else{
-      if(typeof(issues.fields.issuelinks[i+1])!='undefined'){
-        if(issues.fields.issuelinks[i+1].hasOwnProperty("outwardIssue")==true){
-          if(issues.fields.issuelinks[i+1].type.outward<issues.fields.issuelinks[i].type.inward){
-            temp = issues.fields.issuelinks[i];
-            issues.fields.issuelinks[i]=issues.fields.issuelinks[i+1];
-            issues.fields.issuelinks[i+1]=temp;
+      if(typeof(issue.fields.issuelinks[i+1])!='undefined'){
+        if(issue.fields.issuelinks[i+1].hasOwnProperty("outwardIssue")==true){
+          if(issue.fields.issuelinks[i+1].type.outward<issue.fields.issuelinks[i].type.ward){
+            temp = issue.fields.issuelinks[i];
+            issue.fields.issuelinks[i]=issue.fields.issuelinks[i+1];
+            issue.fields.issuelinks[i+1]=temp;
           }
         }
         else{
-          if(issues.fields.issuelinks[i+1].type.inward<issues.fields.issuelinks[i].type.inward){
-            temp = issues.fields.issuelinks[i];
-            issues.fields.issuelinks[i]=issues.fields.issuelinks[i+1];
-            issues.fields.issuelinks[i+1]=temp;
+          if(issue.fields.issuelinks[i+1].type.inward<issue.fields.issuelinks[i].type.inward){
+            temp = issue.fields.issuelinks[i];
+            issue.fields.issuelinks[i]=issue.fields.issuelinks[i+1];
+            issue.fields.issuelinks[i+1]=temp;
           }
         }
       }

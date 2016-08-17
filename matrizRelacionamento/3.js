@@ -120,14 +120,14 @@ function orderLinks(issue){
     if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
       if(typeof(issue.fields.issuelinks[i+1])!='undefined'){
         if(issue.fields.issuelinks[i+1].hasOwnProperty("outwardIssue")==true){
-          if(issue.fields.issuelinks[i+1].type.outward<issue.fields.issuelinks[i].outwardIssue.id){
+          if(issue.fields.issuelinks[i+1].outwardIssue.key<issue.fields.issuelinks[i].outwardIssue.key){
             temp = issue.fields.issuelinks[i];
             issue.fields.issuelinks[i]=issue.fields.issuelinks[i+1];
             issue.fields.issuelinks[i+1]=temp;
           }
         }
         else{
-          if(issue.fields.issuelinks[i+1].type.inward<issue.fields.issuelinks[i].outwardIssue.id){
+          if(issue.fields.issuelinks[i+1].inwardIssue.key<issue.fields.issuelinks[i].outwardIssue.key){
             temp = issue.fields.issuelinks[i];
             issue.fields.issuelinks[i]=issue.fields.issuelinks[i+1];
             issue.fields.issuelinks[i+1]=temp;
@@ -138,14 +138,14 @@ function orderLinks(issue){
     else{
       if(typeof(issue.fields.issuelinks[i+1])!='undefined'){
         if(issue.fields.issuelinks[i+1].hasOwnProperty("outwardIssue")==true){
-          if(issue.fields.issuelinks[i+1].type.outward<issue.fields.issuelinks[i].inwardIssue.id){
+          if(issue.fields.issuelinks[i+1].outwardIssue.key<issue.fields.issuelinks[i].inwardIssue.key){
             temp = issue.fields.issuelinks[i];
             issue.fields.issuelinks[i]=issue.fields.issuelinks[i+1];
             issue.fields.issuelinks[i+1]=temp;
           }
         }
         else{
-          if(issue.fields.issuelinks[i+1].type.inward<issue.fields.issuelinks[i].inwardIssue.id){
+          if(issue.fields.issuelinks[i+1].inwardIssue.key<issue.fields.issuelinks[i].inwardIssue.key){
             temp = issue.fields.issuelinks[i];
             issue.fields.issuelinks[i]=issue.fields.issuelinks[i+1];
             issue.fields.issuelinks[i+1]=temp;

@@ -30,7 +30,7 @@ function resquest(url){
   $.getJSON(url,function(data){
   	console.log(data.id);
     issues.push(data);
-    setTimeout(next,100);
+    setTimeout(next,1);
   })
 }
 

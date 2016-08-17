@@ -71,6 +71,7 @@ function createTable(){
     row.cells[0].bgColor="#CFCFCF"
     var last=issues.length-1;
     for(j=0; j<issues[i].fields.issuelinks.length; j++){
+      orderLinks(issues[i]);
 	    if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
 	    	if(issues[i].fields.issuelinks[j].outwardIssue.key == issues[last].key){
 	    		row.insertCell().innerHTML=issues[i].fields.issuelinks[j].type.outward;
@@ -109,4 +110,47 @@ function createTable(){
   	}
   }
   $("#table1 tbody tr")[issues.length].cells[issues.length].bgColor="#36648B";
+}
+
+function orderLinks(issue){
+  var i, temp;
+  var order = [];
+  for(i=0; i<=issue.fields.issuelinks.length; i++){
+    if(issues.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
+      if(typeof(issues.fields.issuelinks[i+1])!='undefined'){
+        if(issues.fields.issuelinks[i+1].hasOwnProperty("outwardIssue")==true){
+          if(issues.fields.issuelinks[i+1].type.outward<issues.fields.issuelinks[i].type.outward){
+            temp = issues.fields.issuelinks[i];
+            issues.fields.issuelinks[i]=issues.fields.issuelinks[i+1];
+            issues.fields.issuelinks[i+1]=temp;
+          }
+        }
+        else{
+          if(issues.fields.issuelinks[i+1].type.inward<issues.fields.issuelinks[i].type.outward){
+            temp = issues.fields.issuelinks[i];
+            issues.fields.issuelinks[i]=issues.fields.issuelinks[i+1];
+            issues.fields.issuelinks[i+1]=temp;
+          }
+        }
+      }
+    }
+    else{
+      if(typeof(issues.fields.issuelinks[i+1])!='undefined'){
+        if(issues.fields.issuelinks[i+1].hasOwnProperty("outwardIssue")==true){
+          if(issues.fields.issuelinks[i+1].type.outward<issues.fields.issuelinks[i].type.inward){
+            temp = issues.fields.issuelinks[i];
+            issues.fields.issuelinks[i]=issues.fields.issuelinks[i+1];
+            issues.fields.issuelinks[i+1]=temp;
+          }
+        }
+        else{
+          if(issues.fields.issuelinks[i+1].type.inward<issues.fields.issuelinks[i].type.inward){
+            temp = issues.fields.issuelinks[i];
+            issues.fields.issuelinks[i]=issues.fields.issuelinks[i+1];
+            issues.fields.issuelinks[i+1]=temp;
+          }
+        }
+      }
+    }
+  }
 }

@@ -9,7 +9,8 @@ $("#dropProjetos").change(function(){
   var selected = $("#dropProjetos").val();
   $(document).ready(function(){
     var url = ""
-    $.getJSON("https://gabrielquadrado.atlassian.net/rest/api/latest/search?fields=id&"+userAndPassword, function(ids){
+    $.getJSON("https://gabrielquadrado.atlassian.net/rest/api/latest/search?fields=id&"+userAndPassword+
+      "&jql=project="+selected, function(ids){
       var total = ids.total;
       $.getJSON("https://gabrielquadrado.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
         "&fields=id, key, issuetype, summary, description, status"+"&jql=project="+selected, function(data){

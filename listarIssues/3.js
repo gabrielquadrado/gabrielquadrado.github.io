@@ -16,7 +16,8 @@ $("#dropProjetos").change(function(){
           for(i=0; i<total; i++){
             issues[i]=data[i];
           }
-          createTable();
+          //createTable();
+          console.log(data);
         })
     })
     /*if(selected=='all')

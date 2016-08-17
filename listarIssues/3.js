@@ -1,5 +1,4 @@
 var issues = [];
-var restURLs = [];
 var row = document.getElementById("tableIssues").insertRow(0);
 var userAndPassword = "os_username=admin&os_password=atlassian123";
 

@@ -14,9 +14,9 @@ $("#dropProjetos").change(function(){
       $.getJSON("https://gabrielquadrado.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
         "&fields=id, key, issuetype, summary, description, status", function(data){
           for(i=0; i<total; i++){
-            issues[i]=data[i];
+            issues[i]=data.issues[i];
           }
-          //createTable();
+          createTable();
           console.log(data);
         })
     })

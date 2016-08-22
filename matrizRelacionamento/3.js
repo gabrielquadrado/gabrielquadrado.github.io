@@ -116,29 +116,27 @@ function createTable(){
 function orderLinks(issue){
   var i, j, temp;
   var order = [];
-  $.each(issues, function(kIssue,vIssue){
-    for(i=1; i<vIssue.fields.issuelinks.length; i++){
-      if(vIssue.fields.issuelinks[i].hasOwnProperty("outwardIssue"))
-        temp=vIssue.fields.issuelinks[i].outwardIssue.key;
-      else
-        temp=vIssue.fields.issuelinks[i].inwardIssue.key;
-      j=i-1;
-      if(vIssue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
-        while(j>=0 && temp<vIssue.fields.issuelinks[j].outwardIssue.key){
-          vIssue.fields.issuelinks[j+1] = vIssue.fields.issuelinks[j];
-          j--;
-        }
-      }
-      else{
-        while(j>=0 && temp<vIssue.fields.issuelinks[j].inwardIssue.key){
-          vIssue.fields.issuelinks[j+1] = vIssue.fields.issuelinks[j];
-          j--;
-        } 
-      }
-      vIssue.fields.issuelinks[j+1] = temp;
+  for(i=1; i<issue.fields.issuelinks.length; i++){
+  if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue"))
+    temp=issue.fields.issuelinks[i].outwardIssue.key;
+  else
+    temp=issue.fields.issuelinks[i].inwardIssue.key;
+  j=i-1;
+  if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
+    while(j>=0 && temp<issue.fields.issuelinks[j].outwardIssue.key){
+      issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+      j--;
     }
-  });
-  /*for(i=0; i<issue.fields.issuelinks.length; i++){
+  }
+  else{
+    while(j>=0 && temp<issue.fields.issuelinks[j].inwardIssue.key){
+      issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+      j--;
+    } 
+  }
+  issue.fields.issuelinks[j+1] = temp;
+}
+    /*for(i=0; i<issue.fields.issuelinks.length; i++){
     if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
       for(j=i; j>=0; j--){
         if(typeof(issue.fields.issuelinks[j+1])!='undefined'){

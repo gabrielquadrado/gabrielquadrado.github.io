@@ -118,8 +118,8 @@ function orderLinks(issue){
   var order = [];
   for(i=1; i<issue.fields.issuelinks.length; i++){
     temp=issue.fields.issuelinks[i];
-    j=i-1;
     if(temp.hasOwnProperty("outwardIssue")){
+      j=i-1;
       if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
         while(j>=0 && temp.outwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
           issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
@@ -136,6 +136,7 @@ function orderLinks(issue){
       }
     }
     else{
+      j=i-1;
       if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
         while(j>=0 && temp.inwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
           issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];

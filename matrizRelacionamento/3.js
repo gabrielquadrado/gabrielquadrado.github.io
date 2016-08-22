@@ -118,8 +118,18 @@ function orderLinks(issue){
   var order = [];
   for(i=1; i<issue.fields.issuelinks.length; i++){
     temp=issue.fields.issuelinks[i];
-    if(temp.hasOwnProperty("outwardIssue")){
+    //if(temp.hasOwnProperty("outwardIssue")){
       j=i-1;
+      while(j>=0 && (
+      temp.outwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key || 
+      temp.outwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key ||
+      temp.inwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key ||
+      temp.inwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key)){
+        issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+        j--;
+      }
+      issue.fields.issuelinks[j+1] = temp;
+      /*
       if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
         while(j>=0 && temp.outwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
           issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
@@ -152,7 +162,7 @@ function orderLinks(issue){
         issue.fields.issuelinks[j+1] = temp;
       }
     }
-  }
+  }*/
     /*for(i=0; i<issue.fields.issuelinks.length; i++){
     if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
       for(j=i; j>=0; j--){

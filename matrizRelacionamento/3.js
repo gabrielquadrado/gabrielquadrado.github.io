@@ -119,7 +119,7 @@ function orderLinks(issue){
   for(i=0; i<links.length-1; i++){
     menor = i;
     for(j=i+i; j<links.length; j++){
-      if(menor.hasOwnProperty("outwardIssue")){
+      if(links[menor].hasOwnProperty("outwardIssue")){
         if(links[j].hasOwnProperty("outwardIssue")){
           if(links[j].outwardIssue.key<menor.outwardIssue.key){
             menor = j;
@@ -131,7 +131,7 @@ function orderLinks(issue){
           }
         }
       }
-      if(menor.hasOwnProperty("inwardIssue")){
+      if(links[menor].hasOwnProperty("inwardIssue")){
           if(links[j].hasOwnProperty("outwardIssue")){
             if(links[j].outwardIssue.key<menor.inwardIssue.key){
               menor = j;

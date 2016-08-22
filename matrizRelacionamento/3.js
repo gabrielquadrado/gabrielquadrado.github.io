@@ -117,25 +117,38 @@ function orderLinks(issue){
   var i, j, temp;
   var order = [];
   for(i=1; i<issue.fields.issuelinks.length; i++){
-  if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue"))
-    temp=issue.fields.issuelinks[i].outwardIssue.key;
-  else
-    temp=issue.fields.issuelinks[i].inwardIssue.key;
-  j=i-1;
-  if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
-    while(j>=0 && temp<issue.fields.issuelinks[j].outwardIssue.key){
-      issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-      j--;
+    temp=issue.fields.issuelinks[i];
+    j=i-1;
+    if(temp.hasOwnProperty("outwardIssue")){
+      if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
+        while(j>=0 && temp.outwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
+          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+          j--;
+        }
+      }
+      else{
+        while(j>=0 && temp.outwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
+          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+          j--;
+        } 
+      }
     }
+    else{
+      if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
+        while(j>=0 && temp.inwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
+          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+          j--;
+        }
+      }
+      else{
+        while(j>=0 && temp.inwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
+          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+          j--;
+        } 
+      }
+    }
+    issue.fields.issuelinks[j+1] = temp;
   }
-  else{
-    while(j>=0 && temp<issue.fields.issuelinks[j].inwardIssue.key){
-      issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-      j--;
-    } 
-  }
-  issue.fields.issuelinks[j+1] = temp;
-}
     /*for(i=0; i<issue.fields.issuelinks.length; i++){
     if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
       for(j=i; j>=0; j--){

@@ -118,7 +118,7 @@ function orderLinks(issue){
   var links = issue.fields.issuelinks;
   for(i=0; i<links.length-1; i++){
     menor = i;
-    for(j=(i+1); j<links.length; j++){
+    for(j=(i+1); j<=links.length; j++){
       if(links[menor].hasOwnProperty("outwardIssue")){
         if(links[j].hasOwnProperty("outwardIssue")){
           if(getJiraNumber(links[j].outwardIssue.key)<getJiraNumber(links[menor].outwardIssue.key)){
@@ -149,48 +149,6 @@ function orderLinks(issue){
     }
   }
 }
-    /*for(i=0; i<issue.fields.issuelinks.length; i++){
-    if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
-      for(j=i; j>=0; j--){
-        if(typeof(issue.fields.issuelinks[j+1])!='undefined'){
-          if(issue.fields.issuelinks[j+1].hasOwnProperty("outwardIssue")==true){
-            if(issue.fields.issuelinks[j+1].outwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
-              temp = issue.fields.issuelinks[j];
-              issue.fields.issuelinks[j]=issue.fields.issuelinks[j+1];
-              issue.fields.issuelinks[j+1]=temp;
-            }
-          }
-          else{
-            if(issue.fields.issuelinks[j+1].inwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
-              temp = issue.fields.issuelinks[j];
-              issue.fields.issuelinks[j]=issue.fields.issuelinks[j+1];
-              issue.fields.issuelinks[j+1]=temp;
-            }
-          }
-        }
-      }
-    }
-    else{
-      for(j=i; j>=0; j--){
-        if(typeof(issue.fields.issuelinks[j+1])!='undefined'){
-          if(issue.fields.issuelinks[j+1].hasOwnProperty("outwardIssue")==true){
-            if(issue.fields.issuelinks[j+1].outwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
-              temp = issue.fields.issuelinks[j];
-              issue.fields.issuelinks[j]=issue.fields.issuelinks[j+1];
-              issue.fields.issuelinks[j+1]=temp;
-            }
-          }
-          else{
-            if(issue.fields.issuelinks[j+1].inwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
-              temp = issue.fields.issuelinks[j];
-              issue.fields.issuelinks[j]=issue.fields.issuelinks[j+1];
-              issue.fields.issuelinks[j+1]=temp;
-            }
-          }
-        }
-      }
-    }
-  }*/
 
 function getJiraNumber(str){
   return parseInt(str.split("-")[1])

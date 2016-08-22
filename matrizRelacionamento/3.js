@@ -121,40 +121,32 @@ function orderLinks(issue){
     j=i-1;
     if(temp.hasOwnProperty("outwardIssue")){
       if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
-        while(j>=0){
-          if(temp.outwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
-            issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-            j--;
-          }
+        while(j>=0 && temp.outwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
+          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+          j--;
         }
         issue.fields.issuelinks[j+1] = temp;
       }
       else{
-        while(j>=0){
-          if(temp.outwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
-            issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-            j--;
-          }
+        while(j>=0 && temp.outwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
+          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+          j--;
         }
         issue.fields.issuelinks[j+1] = temp; 
       }
     }
     else{
       if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
-        while(j>=0){
-          if(temp.inwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
-            issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-            j--;
-          }
+        while(j>=0 && temp.inwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
+          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+          j--;
         }
         issue.fields.issuelinks[j+1] = temp;
       }
       else{
-        while(j>=0){
-          if(temp.inwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
-            issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-            j--;
-          }
+        while(j>=0 && temp.inwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
+          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
+          j--;
         } 
         issue.fields.issuelinks[j+1] = temp;
       }

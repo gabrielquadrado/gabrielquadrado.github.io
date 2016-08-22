@@ -125,12 +125,14 @@ function orderLinks(issue){
           issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
           j--;
         }
+        issue.fields.issuelinks[j+1] = temp;
       }
       else{
         while(j>=0 && temp.outwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
           issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
           j--;
-        } 
+        }
+        issue.fields.issuelinks[j+1] = temp; 
       }
     }
     else{
@@ -139,15 +141,16 @@ function orderLinks(issue){
           issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
           j--;
         }
+        issue.fields.issuelinks[j+1] = temp;
       }
       else{
         while(j>=0 && temp.inwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
           issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
           j--;
         } 
+        issue.fields.issuelinks[j+1] = temp;
       }
     }
-    issue.fields.issuelinks[j+1] = temp;
   }
     /*for(i=0; i<issue.fields.issuelinks.length; i++){
     if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){

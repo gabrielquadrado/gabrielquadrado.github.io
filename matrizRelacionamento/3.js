@@ -138,7 +138,7 @@ function orderLinks(issue){
             }
           }
           if(links[j].hasOwnProperty("inwardIssue")){
-            if(getJiraNumber(links[j].inwardIssue.key.)<getJiraNumber(links[menor].inwardIssue.key)){
+            if(getJiraNumber(links[j].inwardIssue.key)<getJiraNumber(links[menor].inwardIssue.key)){
               menor = j;
             }
           }

@@ -117,25 +117,25 @@ function orderLinks(issue){
   var i, j, temp;
   var order = [];
   $.each(issues, function(kIssue,vIssue){
-    for(i=1; i<vIssue.issuelinks.length; i++){
+    for(i=1; i<vIssue.fields.issuelinks.length; i++){
       if(vIssue.hasOwnProperty("outwardIssue"))
-        temp=vIssue.issuelinks[i].outwardIssue.key;
+        temp=vIssue.fields.issuelinks[i].outwardIssue.key;
       else
-        temp=vIssue.issuelinks[i].inwardIssue.key;
+        temp=vIssue.fields.issuelinks[i].inwardIssue.key;
       j=i-1;
-      if(vIssue.issuelinks[j].hasOwnProperty("outwardIssue")){
-        while(j>=0 && temp<vIssue.issuelinks[j].outwardIssue.key){
-          vIssue.issuelinks[j+1] = vIssue.issuelinks[j];
+      if(vIssue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
+        while(j>=0 && temp<vIssue.fields.issuelinks[j].outwardIssue.key){
+          vIssue.fields.issuelinks[j+1] = vIssue.fields.issuelinks[j];
           j--;
         }
       }
       else{
-        while(j>=0 && temp<vIssue.issuelinks[j].inwardIssue.key){
-          vIssue.issuelinks[j+1] = vIssue.issuelinks[j];
+        while(j>=0 && temp<vIssue.fields.issuelinks[j].inwardIssue.key){
+          vIssue.fields.issuelinks[j+1] = vIssue.fields.issuelinks[j];
           j--;
         } 
       }
-      vIssue.issuelinks[j+1] = temp;
+      vIssue.fields.issuelinks[j+1] = temp;
     }
   });
   /*for(i=0; i<issue.fields.issuelinks.length; i++){

@@ -126,7 +126,7 @@ function orderLinks(issue){
           }
         }
         if(links[j].hasOwnProperty("inwardIssue")){
-          if(getJiraNumber(links[j].inwardIssue.key)<localeCompare(links[menor].outwardIssue.key)){
+          if(getJiraNumber(links[j].inwardIssue.key)<getJiraNumber(links[menor].outwardIssue.key)){
             menor = j;
           }
         }

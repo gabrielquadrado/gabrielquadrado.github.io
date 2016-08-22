@@ -115,37 +115,36 @@ function createTable(){
 
 function orderLinks(issue){
   var i, j, temp, menor;
-  var links = issue.fields.issuelinks;
-  for(i=0; i<links.length-1; i++){
+  for(i=0; i<issue.fields.issuelinks.length-1; i++){
     menor = i;
-    for(j=(i+1); j<links.length; j++){
-      if(links[menor].hasOwnProperty("outwardIssue")){
-        if(links[j].hasOwnProperty("outwardIssue")){
-          if(getJiraNumber(links[j].outwardIssue.key)<getJiraNumber(links[menor].outwardIssue.key)){
+    for(j=(i+1); j<issue.fields.issuelinks.length; j++){
+      if(issue.fields.issuelinks[menor].hasOwnProperty("outwardIssue")){
+        if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
+          if(getJiraNumber(issue.fields.issuelinks[j].outwardIssue.key)<getJiraNumber(issue.fields.issuelinks[menor].outwardIssue.key)){
             menor = j;
           }
         }
-        if(links[j].hasOwnProperty("inwardIssue")){
-          if(getJiraNumber(links[j].inwardIssue.key)<getJiraNumber(links[menor].outwardIssue.key)){
+        if(issue.fields.issuelinks[j].hasOwnProperty("inwardIssue")){
+          if(getJiraNumber(issue.fields.issuelinks[j].inwardIssue.key)<getJiraNumber(issue.fields.issuelinks[menor].outwardIssue.key)){
             menor = j;
           }
         }
       }
-      if(links[menor].hasOwnProperty("inwardIssue")){
-          if(links[j].hasOwnProperty("outwardIssue")){
-            if(getJiraNumber(links[j].outwardIssue.key)<getJiraNumber(links[menor].inwardIssue.key)){
+      if(issue.fields.issuelinks[menor].hasOwnProperty("inwardIssue")){
+          if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
+            if(getJiraNumber(issue.fields.issuelinks[j].outwardIssue.key)<getJiraNumber(issue.fields.issuelinks[menor].inwardIssue.key)){
               menor = j;
             }
           }
-          if(links[j].hasOwnProperty("inwardIssue")){
-            if(getJiraNumber(links[j].inwardIssue.key)<getJiraNumber(links[menor].inwardIssue.key)){
+          if(issue.fields.issuelinks[j].hasOwnProperty("inwardIssue")){
+            if(getJiraNumber(issue.fields.issuelinks[j].inwardIssue.key)<getJiraNumber(issue.fields.issuelinks[menor].inwardIssue.key)){
               menor = j;
             }
           }
         }
-      temp = links[i];
-      links[i] = links[menor];
-      links[menor] = temp;
+      temp = issue.fields.issuelinks[i];
+      issue.fields.issuelinks[i] = issue.fields.issuelinks[menor];
+      issue.fields.issuelinks[menor] = temp;
     }
   }
 }

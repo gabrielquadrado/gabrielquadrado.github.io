@@ -114,43 +114,41 @@ function createTable(){
 }
 
 function orderLinks(issue){
-  var i, j, temp;
-  var order = [];
-  for(i=1; i<issue.fields.issuelinks.length; i++){
-    temp=issue.fields.issuelinks[i];
-    j=i-1;
-    if(temp.hasOwnProperty("outwardIssue")){
-      if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
-        while(j>=0 && temp.outwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
-          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-          j--;
+  var i, j, temp, menor;
+  var links = issue.fields.issuelinks;
+  for(i=0; i<links.length-1; i++){
+    menor = i;
+    for(j=i+i; j<links.length; j++){
+      if(menor.hasOwnProperty("outwardIssue")){
+        if(links[j].hasOwnProperty("outwardIssue")){
+          if(links[j].outwardIssue.key<menor.outwardIssue.key){
+            menor = j;
+          }
         }
-        issue.fields.issuelinks[j+1] = temp;
-      }
-      if(issue.fields.issuelinks[j].hasOwnProperty("inwardIssue")){
-        while(j>=0 && temp.outwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
-          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-          j--;
+        if(links[j].hasOwnProperty("inwardIssue")){
+          if(links[j].inwardIssue.key<menor.outwardIssue.key){
+            menor = j;
+          }
         }
-        issue.fields.issuelinks[j+1] = temp; 
       }
+      if(menor.hasOwnProperty("inwardIssue")){
+          if(links[j].hasOwnProperty("outwardIssue")){
+            if(links[j].outwardIssue.key<menor.inwardIssue.key){
+              menor = j;
+            }
+          }
+          if(links[j].hasOwnProperty("inwardIssue")){
+            if(links[j].inwardIssue.key<menor.inwardIssue.key){
+              menor = j;
+            }
+          }
+        }
+      temp = links[i];
+      links[i] = links[menor];
+      links[menor] = temp;
     }
-    if(temp.hasOwnProperty("inwardIssue")){
-      if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
-        while(j>=0 && temp.inwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key){
-          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-          j--;
-        }
-        issue.fields.issuelinks[j+1] = temp;
-      }
-      if(issue.fields.issuelinks[j].hasOwnProperty("inwardIssue")){
-        while(j>=0 && temp.inwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
-          issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
-          j--;
-        }
-        issue.fields.issuelinks[j+1] = temp; 
-      }
-    }
+  }
+}
     /*for(i=0; i<issue.fields.issuelinks.length; i++){
     if(issue.fields.issuelinks[i].hasOwnProperty("outwardIssue")==true){
       for(j=i; j>=0; j--){
@@ -193,5 +191,3 @@ function orderLinks(issue){
       }
     }
   }*/
-}
-}

@@ -121,24 +121,24 @@ function orderLinks(issue){
     for(j=(i+1); j<links.length; j++){
       if(links[menor].hasOwnProperty("outwardIssue")){
         if(links[j].hasOwnProperty("outwardIssue")){
-          if(links[j].outwardIssue.key<menor.outwardIssue.key){
+          if(links[j].outwardIssue.key<links[menor].outwardIssue.key){
             menor = j;
           }
         }
         if(links[j].hasOwnProperty("inwardIssue")){
-          if(links[j].inwardIssue.key<menor.outwardIssue.key){
+          if(links[j].inwardIssue.key<links[menor].outwardIssue.key){
             menor = j;
           }
         }
       }
       if(links[menor].hasOwnProperty("inwardIssue")){
           if(links[j].hasOwnProperty("outwardIssue")){
-            if(links[j].outwardIssue.key<menor.inwardIssue.key){
+            if(links[j].outwardIssue.key<links[menor].inwardIssue.key){
               menor = j;
             }
           }
           if(links[j].hasOwnProperty("inwardIssue")){
-            if(links[j].inwardIssue.key<menor.inwardIssue.key){
+            if(links[j].inwardIssue.key<links[menor].inwardIssue.key){
               menor = j;
             }
           }

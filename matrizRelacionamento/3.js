@@ -206,3 +206,4 @@ function orderLinks(issue){
     }
   }*/
 }
+}

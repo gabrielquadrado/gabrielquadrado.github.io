@@ -194,3 +194,4 @@ function orderLinks(issue){
     }
   }*/
 }
+}

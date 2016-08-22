@@ -131,21 +131,21 @@ function orderLinks(issue){
         }
       }
       if(issue.fields.issuelinks[menor].hasOwnProperty("inwardIssue")){
-          if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
-            if(getJiraNumber(issue.fields.issuelinks[j].outwardIssue.key)<getJiraNumber(issue.fields.issuelinks[menor].inwardIssue.key)){
-              menor = j;
-            }
-          }
-          if(issue.fields.issuelinks[j].hasOwnProperty("inwardIssue")){
-            if(getJiraNumber(issue.fields.issuelinks[j].inwardIssue.key)<getJiraNumber(issue.fields.issuelinks[menor].inwardIssue.key)){
-              menor = j;
-            }
+        if(issue.fields.issuelinks[j].hasOwnProperty("outwardIssue")){
+          if(getJiraNumber(issue.fields.issuelinks[j].outwardIssue.key)<getJiraNumber(issue.fields.issuelinks[menor].inwardIssue.key)){
+            menor = j;
           }
         }
-      temp = issue.fields.issuelinks[i];
-      issue.fields.issuelinks[i] = issue.fields.issuelinks[menor];
-      issue.fields.issuelinks[menor] = temp;
+        if(issue.fields.issuelinks[j].hasOwnProperty("inwardIssue")){
+          if(getJiraNumber(issue.fields.issuelinks[j].inwardIssue.key)<getJiraNumber(issue.fields.issuelinks[menor].inwardIssue.key)){
+            menor = j;
+          }
+        }
+      }
     }
+    temp = issue.fields.issuelinks[i];
+    issue.fields.issuelinks[i] = issue.fields.issuelinks[menor];
+    issue.fields.issuelinks[menor] = temp;
   }
 }
 

@@ -1,13 +1,10 @@
-body{
-	font-size: 10px;
-}
-
 table{
 	border-collapse: collapse;
+	font-size: 10px;
 }
 
 table, tr, td{
 	text-align: center;
 	border: 1px solid black;
-	padding: 2px;
+	padding: 1px;
 }

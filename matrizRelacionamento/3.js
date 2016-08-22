@@ -118,7 +118,7 @@ function orderLinks(issue){
   var links = issue.fields.issuelinks;
   for(i=0; i<links.length-1; i++){
     menor = i;
-    for(j=(i+1); j<=links.length; j++){
+    for(j=(i+1); j<links.length; j++){
       if(links[menor].hasOwnProperty("outwardIssue")){
         if(links[j].hasOwnProperty("outwardIssue")){
           if(getJiraNumber(links[j].outwardIssue.key)<getJiraNumber(links[menor].outwardIssue.key)){

@@ -121,24 +121,24 @@ function orderLinks(issue){
     for(j=(i+1); j<links.length; j++){
       if(links[menor].hasOwnProperty("outwardIssue")){
         if(links[j].hasOwnProperty("outwardIssue")){
-          if(links[j].outwardIssue.key.localeCompare(links[menor].outwardIssue.key)==-1){
+          if(getJiraNumber(links[j].outwardIssue.key)<getJiraNumber(links[menor].outwardIssue.key)){
             menor = j;
           }
         }
         if(links[j].hasOwnProperty("inwardIssue")){
-          if(links[j].inwardIssue.key.localeCompare(links[menor].outwardIssue.key)==-1){
+          if(getJiraNumber(links[j].inwardIssue.key)<localeCompare(links[menor].outwardIssue.key)){
             menor = j;
           }
         }
       }
       if(links[menor].hasOwnProperty("inwardIssue")){
           if(links[j].hasOwnProperty("outwardIssue")){
-            if(links[j].outwardIssue.key.localeCompare(links[menor].inwardIssue.key)==-1){
+            if(getJiraNumber(links[j].outwardIssue.key)<getJiraNumber(links[menor].inwardIssue.key)){
               menor = j;
             }
           }
           if(links[j].hasOwnProperty("inwardIssue")){
-            if(links[j].inwardIssue.key.localeCompare(links[menor].inwardIssue.key)==-1){
+            if(getJiraNumber(links[j].inwardIssue.key.)<getJiraNumber(links[menor].inwardIssue.key)){
               menor = j;
             }
           }
@@ -191,3 +191,7 @@ function orderLinks(issue){
       }
     }
   }*/
+
+function getJiraNumber(str){
+  return parseInt(str.split("-")[1])
+}

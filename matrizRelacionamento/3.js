@@ -65,14 +65,14 @@ function createTable(){
     row.insertCell().innerHTML=issues[i].key;
   $("#table1 tbody tr")[0].bgColor="#CFCFCF";
   for(i=0; i<issues.length; i++){
-    if(issues[i].fields.issuelinks.length>1)
-        orderLinks(issues[i]);
     count=0
     row = document.getElementById("table1").insertRow(1);
     row.insertCell().innerHTML=issues[i].key;
     row.cells[0].bgColor="#CFCFCF"
     var last=issues.length-1;
     for(j=0; j<issues[i].fields.issuelinks.length; j++){
+      if(issues[i].fields.issuelinks.length>1)
+        orderLinks(issues[i]);
 	    if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
 	    	if(issues[i].fields.issuelinks[j].outwardIssue.key == issues[last].key){
 	    		row.insertCell().innerHTML=issues[i].fields.issuelinks[j].type.outward;

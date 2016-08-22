@@ -118,7 +118,7 @@ function orderLinks(issue){
   var order = [];
   $.each(issues, function(kIssue,vIssue){
     for(i=1; i<vIssue.fields.issuelinks.length; i++){
-      if(vIssue.hasOwnProperty("outwardIssue"))
+      if(vIssue.fields.issuelinks.hasOwnProperty("outwardIssue"))
         temp=vIssue.fields.issuelinks[i].outwardIssue.key;
       else
         temp=vIssue.fields.issuelinks[i].inwardIssue.key;

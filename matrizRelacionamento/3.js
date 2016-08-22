@@ -120,11 +120,11 @@ function orderLinks(issue){
     temp=issue.fields.issuelinks[i];
     //if(temp.hasOwnProperty("outwardIssue")){
       j=i-1;
-      while(j>=0 && (
+      while(j>=0 && 
       temp.outwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key || 
       temp.outwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key ||
       temp.inwardIssue.key<issue.fields.issuelinks[j].outwardIssue.key ||
-      temp.inwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key)){
+      temp.inwardIssue.key<issue.fields.issuelinks[j].inwardIssue.key){
         issue.fields.issuelinks[j+1] = issue.fields.issuelinks[j];
         j--;
       }

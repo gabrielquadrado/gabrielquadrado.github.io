@@ -27,7 +27,7 @@ $("#dropProjetos").change(function(){
       }
       console.log(urls);
       next();
-      console.log(issues);
+      //console.log(issues);
     });
       //createTable();
         /*$.getJSON(url, function(data){
@@ -56,14 +56,14 @@ function resquest(url){
         continue;
       issues.push(data.issues[i]);
     }
-    setTimeout(next,1);
+    setTimeout(next,100);
   });
 }
 
 function next(){
   var url = urls.shift();
   if(!url) {
-    //console.log(issues)
+    console.log(issues)
   }
   resquest(url);
 }

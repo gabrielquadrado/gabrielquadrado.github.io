@@ -27,6 +27,7 @@ $("#dropProjetos").change(function(){
       }
       console.log(urls);
       next();
+      console.log(issues);
     });
       //createTable();
         /*$.getJSON(url, function(data){
@@ -62,7 +63,7 @@ function resquest(url){
 function next(){
   var url = urls.shift();
   if(!url) {
-    console.log(issues)
+    //console.log(issues)
   }
   resquest(url);
 }

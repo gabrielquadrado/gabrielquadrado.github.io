@@ -18,7 +18,7 @@ $("#dropProjetos").change(function(){
       console.log("Total: "+total);
       var max=Math.ceil(total/1000);
       var i, j;
-      for(i=0; i<=max; i++){
+      for(i=0; i<max; i++){
         if(selected=='all')
           var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&fields=id,key,issuelinks&maxResults=1000&startAt="+i*1000;
         else

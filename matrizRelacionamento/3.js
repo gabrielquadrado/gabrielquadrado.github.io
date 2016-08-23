@@ -78,15 +78,15 @@ function createTable(){
           if(j==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.outward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
-            while(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
+            if(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
               if(issues[i].fields.issuelinks[j+1].hasOwnProperty("outwardIssue")){
-                while(issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
+                while(typeof(issues[i].fields.issuelinks[j+1])!='undefined' && issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
                   j++;
                   $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');  
                 }
               }
               else{
-                while(issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
+                while(typeof(issues[i].fields.issuelinks[j+1])!='undefined' && issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
                   j++;
                   $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');  
                 } 
@@ -108,15 +108,15 @@ function createTable(){
           if(j==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.inward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
-            while(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
+            if(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
               if(issues[i].fields.issuelinks[j+1].hasOwnProperty("outwardIssue")){
-                while(issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
+                while(typeof(issues[i].fields.issuelinks[j+1])!='undefined' && issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
                   j++;
                   $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.ouyward+'</option>');
                 }
               }
               else{
-                while(issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
+                while(typeof(issues[i].fields.issuelinks[j+1])!='undefined' && issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
                   j++;
                   $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');  
                 }

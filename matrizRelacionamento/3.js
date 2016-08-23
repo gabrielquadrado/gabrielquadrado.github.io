@@ -75,29 +75,43 @@ function createTable(){
     for(j=0; j<issues[i].fields.issuelinks.length; j++){
 	    if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
 	    	if(issues[i].fields.issuelinks[j].outwardIssue.key == issues[last].key){
-	    		row.insertCell().innerHTML=issues[i].fields.issuelinks[j].type.outward;
-  				last--;
-  				count++;
-	        }
-	        else{
-		        row.insertCell().innerHTML="";
-		        last--;
-		        count++;
-		        j--;
-	        }
-	    }
-      else{
-        if(issues[i].fields.issuelinks[j].inwardIssue.key == issues[last].key){
-          row.insertCell().innerHTML=issues[i].fields.issuelinks[j].type.inward;
-          last--;
-          count++;
-          }
-          else{
-            row.insertCell().innerHTML="";
+          if(j==0){
+            row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.outward+
+            '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
+            while(issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
+              $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');
+              j++;  
+            }
             last--;
             count++;
-            j--;
           }
+        }
+        else{
+          row.insertCell().innerHTML="";
+          last--;
+          count++;
+          j--;
+        }
+      }
+      else{
+        if(issues[i].fields.issuelinks[j].inwardIssue.key == issues[last].key){
+          if(j==0){
+            row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.inward+
+            '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
+            while(issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
+              $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');
+              j++;  
+            }
+            last--;
+            count++;
+          }
+        }
+        else{
+          row.insertCell().innerHTML="";
+          last--;
+          count++;
+          j--;
+        }
       }
     }
     for(j=0; j<issues.length-count; j++)

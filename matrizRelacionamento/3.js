@@ -17,7 +17,7 @@ $("#dropProjetos").change(function(){
       var total = ids.total;
       console.log("Total: "+total);
       var max=Math.ceil(total/1000);
-      var i;
+      var i, j;
       if(max>1000){
         for(i=0; i<=max; i++){
           if(selected=='all')
@@ -28,6 +28,18 @@ $("#dropProjetos").change(function(){
         }
       }
       console.log(urls);
+      for(i=0; i<urls.length; i++){
+       $.getJSON(url[i], function(data){
+          for(i=0; i<total; i++){
+            if(data.issues[i].fields.issuelinks.length==0)
+              continue;
+            issues[j]=data.issues[i];
+            j++;
+          }
+        }) 
+      }
+      console.log("Issues: "+issues);
+      //createTable();
         /*$.getJSON(url, function(data){
           var j = 0;
             for(i=0; i<total; i++){
@@ -39,6 +51,7 @@ $("#dropProjetos").change(function(){
             createTable();
             console.log(data);
           });*/
+      }
     });
   });
 });

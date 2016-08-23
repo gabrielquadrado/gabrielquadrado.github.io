@@ -1,5 +1,5 @@
 var issues = [];
-var restURLs = [];
+var urls = [];
 var row = document.getElementById("table1").insertRow(0);
 var userAndPassword = "os_username=quadrado&os_password=atlassian123";
 var total;
@@ -9,7 +9,6 @@ $("#dropProjetos").change(function(){
   arrayReset();
   var selected = $("#dropProjetos").val();
   $(document).ready(function(){
-    var urls = [];
     if(selected=='all')
       var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&'+userAndPassword;
     else

@@ -99,7 +99,7 @@ function createTable(){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.inward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
             while(issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
-              $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');
+              $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');
               j++;  
             }
             last--;

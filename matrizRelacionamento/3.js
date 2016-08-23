@@ -24,7 +24,7 @@ $("#dropProjetos").change(function(){
           else
             var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
             "&fields=id, key, issuelinks"+"&jql=project="+selected+"&startAt="+i;
-          urls.append(url);
+          urls.push(url);
         }
       }
       console.log(urls);

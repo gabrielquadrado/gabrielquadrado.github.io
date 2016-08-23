@@ -92,9 +92,9 @@ function createTable(){
                 } 
               }
             }
-            last--;
-            count++;
           }
+          last--;
+          count++;
         }
       else{
         row.insertCell().innerHTML="";
@@ -122,9 +122,9 @@ function createTable(){
                 }
               }
             }
-            last--;
-            count++;
           }
+          last--;
+          count++;
         }
         else{
           row.insertCell().innerHTML="";

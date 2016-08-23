@@ -58,7 +58,7 @@ function next(){
 
 function createTable(){
   $("#table1").empty();
-  var i, j, k, count, a;
+  var i, j, k, l count, a;
   row = document.getElementById("table1").insertRow(0);
   row.insertCell().innerHTML="";
   for(i=issues.length-1; i>=0; i--)
@@ -73,70 +73,71 @@ function createTable(){
     row.cells[0].bgColor="#CFCFCF"
     var last=issues.length-1;
     for(j=0; j<issues[i].fields.issuelinks.length; j++){
-      a=0;
-	    if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
-	    	if(issues[i].fields.issuelinks[j].outwardIssue.key == issues[last].key){
-          if(a==0){
+      //a=0;
+      if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
+        if(issues[i].fields.issuelinks[j].outwardIssue.key == issues[last].key){
+          //if(a==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.outward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';
-          }
-          while(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
-              if(issues[i].fields.issuelinks[j+1].hasOwnProperty("outwardIssue")){
-                if(issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
-                  j++;
-                  $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');  
-                  a++;
-                }
-                else{
-                  break;
-                }
-              }
-              else{
-                while(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
-                  if(issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
-                    j++;
-                    $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');  
-                    a++;
-                  }
-                  else{
-                    break;
-                  }
-                } 
-              }
-            }
-          last--;
-          count++;
-        }
-      else{
-        row.insertCell().innerHTML="";
-        last--;
-        count++;
-        j--;
-      }
-    }
-      else{
-        if(issues[i].fields.issuelinks[j].inwardIssue.key == issues[last].key){
-          if(a==0){
-            row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.inward+
-            '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
-          }
-          while(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
-            if(issues[i].fields.issuelinks[j+1].hasOwnProperty("outwardIssue")){
-              if(issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
-                j++;
-                $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.ouyward+'</option>');
-                a++;
+            //a++;
+          //}
+          l=j+1;
+          while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
+            if(issues[i].fields.issuelinks[l].hasOwnProperty("outwardIssue")){
+              if(issues[i].fields.issuelinks[l].outwardIssue.key == issues[last].key){
+                $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.outward+'</option>');
+                l++;
+                //a++;
               }
               else{
                 break;
               }
             }
             else{
-              while(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
-                if(issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
+              if(issues[i].fields.issuelinks[l].inwardIssue.key == issues[last].key){
+                $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
+                l++;
+                //a++;
+              }
+              else{
+                break;
+              }
+            } 
+          }
+        last--;
+        count++;
+      }
+      else{
+        row.insertCell().innerHTML="";
+        last--;
+        count++;
+        j--;
+      }
+      }
+      else{
+        if(issues[i].fields.issuelinks[j].inwardIssue.key == issues[last].key){
+          //if(a==0){
+            row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.inward+
+            '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
+          //}
+          l=j+1;
+          while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
+            if(issues[i].fields.issuelinks[l].hasOwnProperty("outwardIssue")){
+              if(issues[i].fields.issuelinks[l].outwardIssue.key == issues[last].key){
+                $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.ouyward+'</option>');
                 j++;
-                $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');  
-                a++;
+                //a++;
+              }
+              else{
+                break;
+              }
+            }
+            else{
+              while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
+                if(issues[i].fields.issuelinks[l].inwardIssue.key == issues[last].key){
+                $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
+                j++;
+                //a++;
                 }
                 else{
                   break;

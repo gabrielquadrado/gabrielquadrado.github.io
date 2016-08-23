@@ -42,7 +42,10 @@ table, tr, td{
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #436EEE}
+.dropdown-content a:hover {
+	position: absolute;
+	background-color: #436EEE
+}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {

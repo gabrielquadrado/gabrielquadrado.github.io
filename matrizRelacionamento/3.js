@@ -62,7 +62,7 @@ function resquest(url){
 function next(){
   var url = urls.shift();
   if(!url) {
-    console.log("Issues: "+issues)
+    console.log(issues)
   }
   resquest(url);
 }

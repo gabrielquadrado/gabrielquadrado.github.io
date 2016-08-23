@@ -88,7 +88,7 @@ function createTable(){
     for(j=0; j<issues[i].fields.issuelinks.length; j++){
       //a=0;
       if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
-        if(issues[i].fields.issuelinks[j].outwardIssue.key == issues[last].key){
+        if(getJiraNumber(issues[i].fields.issuelinks[j].outwardIssue.key) == getJiraNumber(issues[last].key)){
           //if(a==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.outward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';
@@ -97,7 +97,7 @@ function createTable(){
           l=j+1;
           while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
             if(issues[i].fields.issuelinks[l].hasOwnProperty("outwardIssue")){
-              if(issues[i].fields.issuelinks[l].outwardIssue.key == issues[last].key){
+              if(getJiraNumber(issues[i].fields.issuelinks[l].outwardIssue.key) == getJiraNumber(issues[last].key)){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.outward+'</option>');
                 l++;
                 j++;
@@ -108,7 +108,7 @@ function createTable(){
               }
             }
             else{
-              if(issues[i].fields.issuelinks[l].inwardIssue.key == issues[last].key){
+              if(getJiraNumber(issues[i].fields.issuelinks[l].inwardIssue.key) == getJiraNumber(issues[last].key)){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
                 l++;
                 j++;
@@ -130,7 +130,7 @@ function createTable(){
       }
       }
       else{
-        if(issues[i].fields.issuelinks[j].inwardIssue.key == issues[last].key){
+        if(getJiraNumber(issues[i].fields.issuelinks[j].inwardIssue.key) == getJiraNumber(issues[last].key)){
           //if(a==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.inward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
@@ -138,7 +138,7 @@ function createTable(){
           l=j+1;
           while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
             if(issues[i].fields.issuelinks[l].hasOwnProperty("outwardIssue")){
-              if(issues[i].fields.issuelinks[l].outwardIssue.key == issues[last].key){
+              if(getJiraNumber(issues[i].fields.issuelinks[l].outwardIssue.key) == getJiraNumber(issues[last].key)){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.ouyward+'</option>');
                 l++;
                 j++;
@@ -150,7 +150,7 @@ function createTable(){
             }
             else{
               //while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
-                if(issues[i].fields.issuelinks[l].inwardIssue.key == issues[last].key){
+                if(getJiraNumber(issues[i].fields.issuelinks[l].inwardIssue.key) == getJiraNumber(issues[last].key)){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
                 l++;
                 j++;

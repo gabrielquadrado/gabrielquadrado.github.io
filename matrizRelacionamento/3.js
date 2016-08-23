@@ -63,7 +63,8 @@ function resquest(url){
 function next(){
   var url = urls.shift();
   if(!url) {
-    console.log(issues)
+    //console.log(issues)
+    createTable();
   }
   resquest(url);
 }

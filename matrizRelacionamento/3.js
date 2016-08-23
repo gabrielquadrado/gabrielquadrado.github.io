@@ -78,9 +78,11 @@ function createTable(){
           if(j==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.outward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
-            while(issues[i].fields.issuelinks[j+1]!='undefined' && issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
-              $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');
-              j++;  
+            if(issues[i].fields.issuelinks[j+1]!='undefined'){
+              while(issues[i].fields.issuelinks[j+1]!='undefined' && issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
+                $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');
+                j++;  
+              }
             }
             last--;
             count++;
@@ -98,9 +100,11 @@ function createTable(){
           if(j==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.inward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
-            while(issues[i].fields.issuelinks[j+1]!='undefined' && issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
-              $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');
-              j++;  
+            if(issues[i].fields.issuelinks[j+1]!='undefined'){
+              while(issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
+                $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');
+                j++;  
+              }
             }
             last--;
             count++;

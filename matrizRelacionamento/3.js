@@ -8,19 +8,27 @@ $("#dropProjetos").change(function(){
   arrayReset();
   var selected = $("#dropProjetos").val();
   $(document).ready(function(){
+    var urls = [];
     if(selected=='all')
       var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&'+userAndPassword;
     else
       var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&jql=project='+selected+'&'+userAndPassword;
     $.getJSON(url, function(ids){
       var total = ids.total;
-      if(selected=='all')
-        var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
-        "&fields=id, key, issuelinks";
-      else
-        var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
-        "&fields=id, key, issuelinks"+"&jql=project="+selected;
-        $.getJSON(url, function(data){
+      var max=1000*(Math.ceil(total/1000));
+      var i;
+      if(max>1000){
+        for(i=0; i<=max; i+=1000){
+          if(selected=='all')
+            var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&fields=id, key, issuelinks&maxResults=1000&startAt="+i;
+          else
+            var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
+            "&fields=id, key, issuelinks"+"&jql=project="+selected+"&startAt="+i;
+          urls.append(url);
+        }
+      }
+      console.log(urls);
+        /*$.getJSON(url, function(data){
           var j = 0;
             for(i=0; i<total; i++){
               if(data.issues[i].fields.issuelinks.length==0)
@@ -32,7 +40,7 @@ $("#dropProjetos").change(function(){
             console.log(data);
           });
     });
-  });
+  });*/
 });
 
 function arrayReset(){

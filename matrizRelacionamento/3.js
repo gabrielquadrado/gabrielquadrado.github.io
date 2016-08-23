@@ -87,6 +87,7 @@ function createTable(){
               if(issues[i].fields.issuelinks[l].outwardIssue.key == issues[last].key){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.outward+'</option>');
                 l++;
+                j++;
                 //a++;
               }
               else{
@@ -97,6 +98,7 @@ function createTable(){
               if(issues[i].fields.issuelinks[l].inwardIssue.key == issues[last].key){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
                 l++;
+                j++;
                 //a++;
               }
               else{
@@ -126,6 +128,7 @@ function createTable(){
               if(issues[i].fields.issuelinks[l].outwardIssue.key == issues[last].key){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.ouyward+'</option>');
                 l++;
+                j++;
                 //a++;
               }
               else{
@@ -137,6 +140,7 @@ function createTable(){
                 if(issues[i].fields.issuelinks[l].inwardIssue.key == issues[last].key){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
                 l++;
+                j++;
                 //a++;
                 }
                 else{

@@ -38,9 +38,9 @@ $("#dropProjetos").change(function(){
             }
             createTable();
             console.log(data);
-          });
+          });*/
     });
-  });*/
+  });
 });
 
 function arrayReset(){

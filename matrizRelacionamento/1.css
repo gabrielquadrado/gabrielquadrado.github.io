@@ -9,6 +9,9 @@ table, tr, td{
 	padding: 1px;
 }
 
+div{
+	position: absolute;
+}
 
 /* Dropdown Button */
 .dropbtn {
@@ -43,7 +46,6 @@ table, tr, td{
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-	position: absolute;
 	background-color: #436EEE
 }
 

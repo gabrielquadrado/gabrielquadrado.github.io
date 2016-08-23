@@ -133,7 +133,7 @@ function createTable(){
               }
             }
             else{
-              while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
+              //while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
                 if(issues[i].fields.issuelinks[l].inwardIssue.key == issues[last].key){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
                 l++;
@@ -143,7 +143,7 @@ function createTable(){
                   break;
                 }
               }
-            }
+            //}
           }
           last--;
           count++;

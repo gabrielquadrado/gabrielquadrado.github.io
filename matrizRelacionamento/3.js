@@ -58,7 +58,7 @@ function next(){
 
 function createTable(){
   $("#table1").empty();
-  var i, j, k, count;
+  var i, j, k, count, a;
   row = document.getElementById("table1").insertRow(0);
   row.insertCell().innerHTML="";
   for(i=issues.length-1; i>=0; i--)
@@ -73,23 +73,26 @@ function createTable(){
     row.cells[0].bgColor="#CFCFCF"
     var last=issues.length-1;
     for(j=0; j<issues[i].fields.issuelinks.length; j++){
+      a=0;
 	    if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
 	    	if(issues[i].fields.issuelinks[j].outwardIssue.key == issues[last].key){
-          if(j==0){
+          if(a==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.outward+
-            '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
+            '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';
           }
           if(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
               if(issues[i].fields.issuelinks[j+1].hasOwnProperty("outwardIssue")){
                 while(typeof(issues[i].fields.issuelinks[j+1])!='undefined' && issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
                   j++;
                   $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');  
+                  a++;
                 }
               }
               else{
                 while(typeof(issues[i].fields.issuelinks[j+1])!='undefined' && issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
                   j++;
                   $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');  
+                  a++;
                 } 
               }
             }
@@ -105,7 +108,7 @@ function createTable(){
     }
       else{
         if(issues[i].fields.issuelinks[j].inwardIssue.key == issues[last].key){
-          if(j==0){
+          if(a==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.inward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
           }
@@ -114,12 +117,14 @@ function createTable(){
                 while(typeof(issues[i].fields.issuelinks[j+1])!='undefined' && issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
                   j++;
                   $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.ouyward+'</option>');
+                  a++;
                 }
               }
               else{
                 while(typeof(issues[i].fields.issuelinks[j+1])!='undefined' && issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
                   j++;
                   $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');  
+                  a++;
                 }
               }
             }

@@ -81,14 +81,14 @@ function createTable(){
             while(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
               if(issues[i].fields.issuelinks[j+1].hasOwnProperty("outwardIssue")){
                 while(issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
-                  $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');
-                  j++;  
+                  j++;
+                  $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.outward+'</option>');  
                 }
               }
               else{
                 while(issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
-                  $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');
-                  j++;  
+                  j++;
+                  $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');  
                 } 
               }
             }
@@ -111,14 +111,14 @@ function createTable(){
             while(typeof(issues[i].fields.issuelinks[j+1])!='undefined'){
               if(issues[i].fields.issuelinks[j+1].hasOwnProperty("outwardIssue")){
                 while(issues[i].fields.issuelinks[j+1].outwardIssue.key == issues[last].key){
+                  j++;
                   $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.ouyward+'</option>');
-                  j++;  
                 }
               }
               else{
                 while(issues[i].fields.issuelinks[j+1].inwardIssue.key == issues[last].key){
-                  $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');
-                  j++;  
+                  j++;
+                  $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[j].type.inward+'</option>');  
                 }
               }
             }

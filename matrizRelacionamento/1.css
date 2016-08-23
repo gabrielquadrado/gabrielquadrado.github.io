@@ -31,6 +31,7 @@ table, tr, td{
     display: none;
     position: absolute;
     background-color: #f9f9f9;
+    z-index: 9999;
 }
 
 /* Links inside the dropdown */

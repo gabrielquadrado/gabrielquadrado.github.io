@@ -58,7 +58,7 @@ function next(){
 
 function createTable(){
   $("#table1").empty();
-  var i, j, k, l count, a;
+  var i, j, k, l, count, a;
   row = document.getElementById("table1").insertRow(0);
   row.insertCell().innerHTML="";
   for(i=issues.length-1; i>=0; i--)

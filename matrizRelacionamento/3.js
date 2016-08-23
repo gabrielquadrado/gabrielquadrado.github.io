@@ -9,16 +9,16 @@ $("#dropProjetos").change(function(){
   var selected = $("#dropProjetos").val();
   $(document).ready(function(){
     if(selected=='all')
-      var url = 'https://gabrielquadrado.atlassian.net/rest/api/latest/search?fields=id&'+userAndPassword;
+      var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&'+userAndPassword;
     else
-      var url = 'https://gabrielquadrado.atlassian.net/rest/api/latest/search?fields=id&jql=project='+selected+'&'+userAndPassword;
+      var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&jql=project='+selected+'&'+userAndPassword;
     $.getJSON(url, function(ids){
       var total = ids.total;
       if(selected=='all')
-        var url = "https://gabrielquadrado.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
+        var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
         "&fields=id, key, issuelinks";
       else
-        var url = "https://gabrielquadrado.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
+        var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
         "&fields=id, key, issuelinks"+"&jql=project="+selected;
         $.getJSON(url, function(data){
           var j = 0;

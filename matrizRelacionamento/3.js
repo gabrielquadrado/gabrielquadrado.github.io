@@ -50,7 +50,7 @@ function arrayReset(){
 
 function resquest(url){
   $.getJSON(url,function(data){
-    for(i=0; i<data.length; i++){
+    for(i=0; i<data.issues.length; i++){
       if(data.issues[i].fields.issuelinks.length==0)
         continue;
       issues.push(data.issues[i]);

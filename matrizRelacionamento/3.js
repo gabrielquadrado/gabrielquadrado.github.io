@@ -143,6 +143,7 @@ function createTable(){
                 }
               }
             }
+          }
           last--;
           count++;
         }

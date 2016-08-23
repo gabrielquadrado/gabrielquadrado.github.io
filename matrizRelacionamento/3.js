@@ -29,15 +29,6 @@ $("#dropProjetos").change(function(){
       }
       console.log(urls);
       next();
-      
-      $.getJSON(url[i], function(data){
-          for(i=0; i<total; i++){
-            if(data.issues[i].fields.issuelinks.length==0)
-              continue;
-            issues[j]=data.issues[i];
-            j++;
-          }
-        });
     });
       //createTable();
         /*$.getJSON(url, function(data){

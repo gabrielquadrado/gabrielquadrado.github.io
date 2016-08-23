@@ -37,9 +37,9 @@ $("#dropProjetos").change(function(){
             j++;
           }
         });
-      } 
-    }
+      }
     console.log("Issues: "+issues);
+    });
       //createTable();
         /*$.getJSON(url, function(data){
           var j = 0;
@@ -52,8 +52,6 @@ $("#dropProjetos").change(function(){
             createTable();
             console.log(data);
           });*/
-      }
-    });
   });
 });
 

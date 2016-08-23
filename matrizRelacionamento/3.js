@@ -15,6 +15,7 @@ $("#dropProjetos").change(function(){
       var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&jql=project='+selected+'&'+userAndPassword;
     $.getJSON(url, function(ids){
       var total = ids.total;
+      console.log("Total: "+total);
       var max=1000*(Math.ceil(total/1000));
       var i;
       if(max>1000){
@@ -22,8 +23,7 @@ $("#dropProjetos").change(function(){
           if(selected=='all')
             var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&fields=id, key, issuelinks&maxResults=1000&startAt="+i;
           else
-            var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults="+total+
-            "&fields=id, key, issuelinks"+"&jql=project="+selected+"&startAt="+i;
+            var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults=1000&fields=id, key, issuelinks"+"&jql=project="+selected+"&startAt="+i;
           urls.push(url);
         }
       }

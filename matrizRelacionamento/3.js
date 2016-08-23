@@ -18,14 +18,12 @@ $("#dropProjetos").change(function(){
       console.log("Total: "+total);
       var max=Math.ceil(total/1000);
       var i, j;
-      if(max>1000){
-        for(i=0; i<=max; i++){
-          if(selected=='all')
-            var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&fields=id,key,issuelinks&maxResults=1000&startAt="+i*1000;
-          else
-            var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults=1000&fields=id,key,issuelinks"+"&jql=project="+selected+"&startAt="+i*1000;
-          urls.push(url);
-        }
+      for(i=0; i<=max; i++){
+        if(selected=='all')
+          var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&fields=id,key,issuelinks&maxResults=1000&startAt="+i*1000;
+        else
+          var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults=1000&fields=id,key,issuelinks"+"&jql=project="+selected+"&startAt="+i*1000;
+        urls.push(url);
       }
       console.log(urls);
       next();

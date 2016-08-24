@@ -51,6 +51,7 @@ function resquest(url){
             if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].outwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
               //abort=true;
               data.issues[i].fields.issuelinks.splice(j,1);
+              j--;
               continue;
             }
           }
@@ -58,6 +59,7 @@ function resquest(url){
             if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].inwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
               //abort=true;
               data.issues[i].fields.issuelinks.splice(j,1);
+              j--;
               continue;
             }
           }

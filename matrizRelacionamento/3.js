@@ -38,20 +38,24 @@ function arrayReset(){
 }
 
 function resquest(url){
-  var i, j;
+  var i, j, abort;
   $.getJSON(url,function(data){
     for(i=0; i<data.issues.length; i++){
       if(data.issues[i].fields.issuelinks.length==0){
         continue;
       }
       else{
-        for(j=0; j<data.issues[i].fields.issuelinks.length; j++){
+        for(j=0; j<data.issues[i].fields.issuelinks.length&&!abort; j++){
           if(data.issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")
-            && getJiraProjectKey(data.issues[i].fields.issuelinks[j].outwardIssue.key)!=getJiraProjectKey(data.issues[i].key))
-            continue;
+            && getJiraProjectKey(data.issues[i].fields.issuelinks[j].outwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
+          abort=true;
+          continue;
+          }
           else{
-            if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].inwardIssue.key)!=getJiraProjectKey(data.issues[i].key))
+            if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].inwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
+              abort=true;
               continue;
+            }
           }
         }
       }

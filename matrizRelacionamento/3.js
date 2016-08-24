@@ -9,7 +9,7 @@ $("#dropProjetos").change(function(){
   arrayReset();
   var selected = $("#dropProjetos").val();
   $(document).ready(function(){
-    if(selected=='all')
+    if(1==1)
       var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&'+userAndPassword;
     else
       var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&jql=project='+selected+'&'+userAndPassword;
@@ -19,7 +19,7 @@ $("#dropProjetos").change(function(){
       var max=Math.ceil(total/1000);
       var i, j;
       for(i=0; i<max; i++){
-        if(selected=='all')
+        if(1==1)
           var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&fields=id,key,issuelinks&maxResults=1000&startAt="+i*1000;
         else
           var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults=1000&fields=id,key,issuelinks"+"&jql=project="+selected+"&startAt="+i*1000;
@@ -29,18 +29,6 @@ $("#dropProjetos").change(function(){
       next();
       //console.log(issues);
     });
-      //createTable();
-        /*$.getJSON(url, function(data){
-          var j = 0;
-            for(i=0; i<total; i++){
-              if(data.issues[i].fields.issuelinks.length==0)
-                continue;
-              issues[j]=data.issues[i];
-              j++;
-            }
-            createTable();
-            console.log(data);
-          });*/
   });
 });
 
@@ -89,11 +77,8 @@ function createTable(){
       //a=0;
       if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
         if(getJiraNumber(issues[i].fields.issuelinks[j].outwardIssue.key) == getJiraNumber(issues[last].key)){
-          //if(a==0){
-            row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.outward+
-            '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';
-            //a++;
-          //}
+          row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.outward+
+          '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';
           l=j+1;
           while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
             if(issues[i].fields.issuelinks[l].hasOwnProperty("outwardIssue")){
@@ -101,7 +86,6 @@ function createTable(){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.outward+'</option>');
                 l++;
                 j++;
-                //a++;
               }
               else{
                 break;
@@ -112,7 +96,6 @@ function createTable(){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
                 l++;
                 j++;
-                //a++;
               }
               else{
                 break;
@@ -131,10 +114,8 @@ function createTable(){
       }
       else{
         if(getJiraNumber(issues[i].fields.issuelinks[j].inwardIssue.key) == getJiraNumber(issues[last].key)){
-          //if(a==0){
             row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.inward+
             '</button><div class="dropdown-content" id="drop'+i+'"></div></div>';   
-          //}
           l=j+1;
           while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
             if(issues[i].fields.issuelinks[l].hasOwnProperty("outwardIssue")){
@@ -142,7 +123,6 @@ function createTable(){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.ouyward+'</option>');
                 l++;
                 j++;
-                //a++;
               }
               else{
                 break;
@@ -154,7 +134,6 @@ function createTable(){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
                 l++;
                 j++;
-                //a++;
                 }
                 else{
                   break;

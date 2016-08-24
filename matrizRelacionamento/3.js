@@ -9,7 +9,7 @@ $("#dropProjetos").change(function(){
   arrayReset();
   var selected = $("#dropProjetos").val();
   $(document).ready(function(){
-    if(1==1)
+    if(selected=='all')
       var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&'+userAndPassword;
     else
       var url = 'https://monitoratecnologia.atlassian.net/rest/api/latest/search?fields=id&jql=project='+selected+'&'+userAndPassword;
@@ -19,7 +19,7 @@ $("#dropProjetos").change(function(){
       var max=Math.ceil(total/1000);
       var i, j;
       for(i=0; i<max; i++){
-        if(1==1)
+        if(selected=='all')
           var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&fields=id,key,issuelinks&maxResults=1000&startAt="+i*1000;
         else
           var url = "https://monitoratecnologia.atlassian.net/rest/api/latest/search?"+userAndPassword+"&maxResults=1000&fields=id,key,issuelinks"+"&jql=project="+selected+"&startAt="+i*1000;
@@ -38,10 +38,12 @@ function arrayReset(){
 }
 
 function resquest(url){
+  var i, j;
   $.getJSON(url,function(data){
     for(i=0; i<data.issues.length; i++){
-      if(data.issues[i].fields.issuelinks.length==0)
+      if(data.issues[i].fields.issuelinks.length==0){
         continue;
+      }
       issues.push(data.issues[i]);
     }
     setTimeout(next,10);
@@ -51,8 +53,8 @@ function resquest(url){
 function next(){
   var url = urls.shift();
   if(!url) {
-    //console.log(issues)
-    createTable();
+    console.log(issues)
+    //createTable();
   }
   resquest(url);
 }

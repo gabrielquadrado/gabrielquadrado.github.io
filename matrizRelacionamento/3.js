@@ -27,7 +27,6 @@ $("#dropProjetos").change(function(){
       }
       console.log(urls);
       next();
-      //console.log(issues);
     });
   });
 });
@@ -49,7 +48,6 @@ function resquest(url){
         for(j=0; j<data.issues[i].fields.issuelinks.length; j++){
           if(data.issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")){
             if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].outwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
-              //abort=true;
               data.issues[i].fields.issuelinks.splice(j,1);
               j--;
               continue;
@@ -57,7 +55,6 @@ function resquest(url){
           }
           else{
             if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].inwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
-              //abort=true;
               data.issues[i].fields.issuelinks.splice(j,1);
               j--;
               continue;
@@ -65,7 +62,6 @@ function resquest(url){
           }
         }
       }
-    //if(!abort)
       issues.push(data.issues[i]);
     }
   setTimeout(next,10);
@@ -83,6 +79,7 @@ function next(){
 
 function createTable(){
   $("#table1").empty();
+  divCleaner();
   var i, j, k, l, count, a;
   row = document.getElementById("table1").insertRow(0);
   if(issues.length==0){
@@ -102,7 +99,6 @@ function createTable(){
     row.cells[0].bgColor="#CFCFCF"
     var last=issues.length-1;
     for(j=0; j<issues[i].fields.issuelinks.length; j++){
-      //a=0;
       if(issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")==true){
         if(getJiraNumber(issues[i].fields.issuelinks[j].outwardIssue.key) == getJiraNumber(issues[last].key)){
           row.insertCell().innerHTML='<div class="dropdown"><button class="dropbtn">'+issues[i].fields.issuelinks[j].type.outward+
@@ -157,7 +153,6 @@ function createTable(){
               }
             }
             else{
-              //while(typeof(issues[i].fields.issuelinks[l])!='undefined'){
                 if(getJiraNumber(issues[i].fields.issuelinks[l].inwardIssue.key) == getJiraNumber(issues[last].key)){
                 $("#drop"+i).append('<option>'+issues[i].fields.issuelinks[l].type.inward+'</option>');  
                 l++;
@@ -167,7 +162,6 @@ function createTable(){
                   break;
                 }
               }
-            //}
           }
           last--;
           count++;
@@ -235,4 +229,8 @@ function getJiraNumber(str){
 
 function getJiraProjectKey(str){
   return str.split("-")[0]
+}
+
+function divCleaner(){
+  document.getElementById("alert").innerHTML="";
 }

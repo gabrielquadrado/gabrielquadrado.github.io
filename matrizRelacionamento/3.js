@@ -44,7 +44,7 @@ function resquest(url){
         continue;
       issues.push(data.issues[i]);
     }
-    setTimeout(next,100);
+    setTimeout(next,10);
   });
 }
 

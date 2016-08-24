@@ -57,8 +57,8 @@ function resquest(url){
       }
     issues.push(data.issues[i]);
     }
-  });
   setTimeout(next,10);
+  });
 }
 
 function next(){

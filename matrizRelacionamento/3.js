@@ -47,10 +47,11 @@ function resquest(url){
       }
       else{
         for(j=0; j<data.issues[i].fields.issuelinks.length; j++){
-          if(data.issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")
-            && getJiraProjectKey(data.issues[i].fields.issuelinks[j].outwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
-          abort=true;
-          continue;
+          if(data.issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")){
+            if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].outwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
+              abort=true;
+              continue;
+            }
           }
           else{
             if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].inwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){

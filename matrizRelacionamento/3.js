@@ -85,11 +85,11 @@ function createTable(){
   $("#table1").empty();
   var i, j, k, l, count, a;
   row = document.getElementById("table1").insertRow(0);
-  row.insertCell().innerHTML="";
   if(issues.length==0){
-    $("body").innerHTML="<h1>Não há issues com relacionamentos neste projeto.</h1>";
+    row.insertCell().innerHTML="<h1>Não há issues com relacionamentos neste projeto.</h1>";
     return;
   }
+  row.insertCell().innerHTML="";
   for(i=issues.length-1; i>=0; i--)
     row.insertCell().innerHTML=issues[i].key;
   $("#table1 tbody tr")[0].bgColor="#CFCFCF";

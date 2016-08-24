@@ -86,7 +86,7 @@ function createTable(){
   var i, j, k, l, count, a;
   row = document.getElementById("table1").insertRow(0);
   if(issues.length==0){
-    row.insertCell().innerHTML="<h1>Não há issues com relacionamentos neste projeto.</h1>";
+    //row.insertCell().innerHTML="<h1>Não há issues com relacionamentos neste projeto.</h1>";
     return;
   }
   row.insertCell().innerHTML="";

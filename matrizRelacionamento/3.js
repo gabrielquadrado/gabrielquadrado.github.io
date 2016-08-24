@@ -41,8 +41,9 @@ function resquest(url){
   var i, j;
   $.getJSON(url,function(data){
     for(i=0; i<data.issues.length; i++){
-      if(data.issues[i].fields.issuelinks.length==0)
+      if(data.issues[i].fields.issuelinks.length==0){
         continue;
+      }
       else{
         for(j=0; j<data.issues[i].fields.issuelinks.length; j++){
           if(data.issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")
@@ -56,8 +57,8 @@ function resquest(url){
       }
     issues.push(data.issues[i]);
     }
-    setTimeout(next,10);
   });
+  setTimeout(next,10);
 }
 
 function next(){

@@ -49,19 +49,21 @@ function resquest(url){
         for(j=0; j<data.issues[i].fields.issuelinks.length; j++){
           if(data.issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")){
             if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].outwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
-              abort=true;
+              //abort=true;
+              data.issues[i].fields.issuelinks[j].splice(j,1);
               continue;
             }
           }
           else{
             if(getJiraProjectKey(data.issues[i].fields.issuelinks[j].inwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
-              abort=true;
+              //abort=true;
+              data.issues[i].fields.issuelinks[j].splice(j,1);
               continue;
             }
           }
         }
       }
-    if(!abort)
+    //if(!abort)
       issues.push(data.issues[i]);
     }
   setTimeout(next,10);

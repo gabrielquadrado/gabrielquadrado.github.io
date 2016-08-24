@@ -38,14 +38,15 @@ function arrayReset(){
 }
 
 function resquest(url){
-  var i, j, abort;
+  var i, j;
   $.getJSON(url,function(data){
     for(i=0; i<data.issues.length; i++){
+      var abort=false;
       if(data.issues[i].fields.issuelinks.length==0){
         continue;
       }
       else{
-        for(j=0; j<data.issues[i].fields.issuelinks.length&&!abort; j++){
+        for(j=0; j<data.issues[i].fields.issuelinks.length; j++){
           if(data.issues[i].fields.issuelinks[j].hasOwnProperty("outwardIssue")
             && getJiraProjectKey(data.issues[i].fields.issuelinks[j].outwardIssue.key)!=getJiraProjectKey(data.issues[i].key)){
           abort=true;
@@ -59,7 +60,8 @@ function resquest(url){
           }
         }
       }
-    issues.push(data.issues[i]);
+    if(!abort)
+      issues.push(data.issues[i]);
     }
   setTimeout(next,10);
   });

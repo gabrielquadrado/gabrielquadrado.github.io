@@ -1,6 +1,6 @@
 var issues = [];
 var row = document.getElementById("tableIssues").insertRow(0);
-var userAndPassword = "os_username=admin&os_password=atlassian123";
+var userAndPassword = "os_username=&os_password=";
 
 $("#dropProjetos").change(function(){
   var i;

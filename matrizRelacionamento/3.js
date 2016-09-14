@@ -1,7 +1,7 @@
 var issues = [];
 var urls = [];
 var row = document.getElementById("table1").insertRow(0);
-var userAndPassword = "os_username=quadrado&os_password=atlassian123";
+var userAndPassword = "os_username=&os_password=";
 var total;
 
 $("#dropProjetos").change(function(){

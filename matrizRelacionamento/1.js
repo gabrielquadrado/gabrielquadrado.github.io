@@ -1,7 +1,7 @@
 var issues = [];
 var restURLs = [];
 var row = document.getElementById("table1").insertRow(0);
-var userAndPassword = "os_username=admin&os_password=atlassian123";
+var userAndPassword = "os_username=&os_password=";
 
 $("#dropProjetos").change(function(){   
   var selected = $("#dropProjetos").val();

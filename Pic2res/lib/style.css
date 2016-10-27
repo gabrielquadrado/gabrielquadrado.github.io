@@ -25,4 +25,9 @@ p-50{
 
 h4{
 	padding: 50px;
+	font-size: 80px;
+}
+.parallax-container {
+	height: 500px;
+
 }

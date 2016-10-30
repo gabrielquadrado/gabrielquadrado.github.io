@@ -42,9 +42,10 @@ p{
 .btn-resposta{
 	margin-top: -50px;
 }
-#modal-resposta > h4{
+#modal-resposta h4{
 	font-size: 0px;
+	padding: 50px 30px 0px 30px;
 }
-#modal-resposta > span{
+#modal-resposta span{
 	font-size: 80px;
 }

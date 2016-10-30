@@ -36,6 +36,15 @@ p{
 	font-size: 40px;
 	text-align: justify-all;
 }
-#last{
+#last-section{
 	padding-top: 80px;
+}
+.btn-resposta{
+	margin-top: -50px;
+}
+#modal-resposta > h4{
+	font-size: 0px;
+}
+#modal-resposta > span{
+	font-size: 80px;
 }

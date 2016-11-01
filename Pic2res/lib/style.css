@@ -33,16 +33,18 @@ p{
 }
 #btn-menu{
 	color: white;
+	background:rgba(0, 0, 0, 0);
+	margin-top: 4px;
 	margin-left: 5px;
 	position: fixed;
 	z-index: 100;
+	transition: 0.5s ease;
 }
 #btn-menu:hover{
-	width: 120%;
-	height: auto;
-	transition: ease;
+	margin-left: 10px;
+	transition: 0.5s ease;
 }
 .userView .background img{
 	width: 100%;
 	height: auto;
-}
+}	

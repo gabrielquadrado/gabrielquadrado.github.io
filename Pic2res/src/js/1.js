@@ -5,4 +5,6 @@ $(document).ready(function(){
    $('#btn-resposta').on("click", function(){
    	$('#modal-resposta').openModal();
    });
+
+   $(".button-collapse").sideNav();
 });

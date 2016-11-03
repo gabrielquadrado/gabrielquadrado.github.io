@@ -32,19 +32,31 @@ p{
     top: 40% !important;
 }
 #btn-menu{
-	color: white;
-	background:rgba(0, 0, 0, 0);
-	margin-top: 4px;
-	margin-left: 5px;
-	position: fixed;
-	z-index: 100;
+    background-color: white;
+    margin-top: 5px;
+    margin-left: -15px;
+    position: fixed;
+    z-index: 1000;
+    width: 30px;
+    height: 30px;
+    transition: 0.5s ease;
+    text-align: center;
+}
+#btn-menu:hover{
+    margin-left: 0;
+    transition: 0.5s ease;
+}
+#btn-menu i{
+	opacity: 0;
+	line-height: 30px;
+	color: #212121;
 	transition: 0.5s ease;
 }
-/*#btn-menu:hover{
-	margin-left: 10px;
+#btn-menu:hover i{
+	opacity: 1;
 	transition: 0.5s ease;
-}*/
+}
 .userView .background img{
 	width: 100%;
 	height: auto;
-}	
+}

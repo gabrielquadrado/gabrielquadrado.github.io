@@ -1,0 +1,30 @@
+body{
+	background-color: #00e676;
+}
+h2 {
+    margin: 0px;
+    line-height: 80px;
+}
+.login-box{
+	margin: 14% 0 0 30%;
+	width: 500px;
+	text-align: center;
+}
+.login-box-header{
+	background-color: white;
+	height: 80px;
+	line-height: 80px;
+	border-radius: 20px;
+	margin-bottom: 3px;
+}
+.login-box-content{
+	background-color: white;
+	width: 500px;
+	height: 250px;
+	border-radius: 20px;
+	padding: 20px 30px 20px 30px;
+}
+.input:focus{
+	border-bottom: 1px solid #00e676!important;
+	box-shadow: 0 1px 0 0 #00e676!important;
+}

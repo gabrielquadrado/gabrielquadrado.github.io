@@ -1,12 +1,23 @@
-body{
+html, body {
+    height: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
+body {
 	background-color: #00e676;
+    display: table-cell;
+    vertical-align: middle;
 }
 h2 {
     margin: 0px;
     line-height: 80px;
 }
+.input-field.col label {
+    left: 0;
+}
 .login-box{
-	margin: 14% 0 0 30%;
 	width: 500px;
 	text-align: center;
 }
@@ -20,9 +31,20 @@ h2 {
 .login-box-content{
 	background-color: white;
 	width: 500px;
-	height: 250px;
+	height: auto;
 	border-radius: 20px;
 	padding: 20px 30px 20px 30px;
+	transition: height 1s ease;
+}
+.login-box-footer{
+	margin-top: 10px;
+	font-size: 14px;
+}
+.login-box-footer a{
+	color: white;
+}
+.login-box-footer i{
+	margin-right: 5px;
 }
 .input:focus{
 	border-bottom: 1px solid #00e676!important;

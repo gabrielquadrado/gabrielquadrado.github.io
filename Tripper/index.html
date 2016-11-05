@@ -1,37 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR" ng-app="Tripper">
 <head>
     <title>Tripper - Login</title>
     <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
     <script type="text/javascript" src="lib/jquery.smoothwheel.js"></script>
     <script type="text/javascript" src="lib/jquery.scrollSpeed.js"></script>
-    <script type="text/javascript" src="src/js/1.js"></script>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="src/js/loginCtrl.js"></script>
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="lib/materialize/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="lib/animate.css">
     <link rel="stylesheet" type="text/css" href="lib/hover.min.css">
     <link rel="stylesheet" type="text/css" href="lib/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyARRLru4UTFQRgjZRSNFrXo6PoJHrcU0ZY",
+        authDomain: "tripper-426b6.firebaseapp.com",
+        databaseURL: "https://tripper-426b6.firebaseio.com",
+        storageBucket: "tripper-426b6.appspot.com",
+        messagingSenderId: "449032740177"
+      };
+      firebase.initializeApp(config);
+    </script>
 </head>
-<body>
+<body ng-controller="loginCtrl">
 <div class="login-box animated fadeIn">
 <div class="login-box-header">
   <h2 class="thin">TRIPPER</h2>
 </div>
 <div class="login-box-content">
-<div class="row">
+  <div class="hide input-field col s12 animated fadeIn">
+    <label for="name">Name</label>
+    <input id="name" type="text" class="input" ng-model="name">
+  </div>
   <div class="input-field col s12">
     <label for="email">Email</label>
-    <input id="email" type="email" class="input">
+    <input id="email" type="email" class="input" ng-model="email">
   </div>
   <div class="input-field col s12">
     <label for="password">Password</label>
-    <input id="password" type="password" class="input">
+    <input id="password" type="password" class="input" ng-model="password">
   </div>
   <div class="input-field col s12">
-    <button class="btn-flat waves-effect waves-light green accent-3 white-text" type="submit" name="action">Login</button>
+    <button id="btn-login" class="btn-flat waves-effect waves-light green accent-3 white-text" type="submit" name="action" ng-click="login()">Login</button>
+    <button id="btn-register" class="hide btn-flat waves-effect waves-light green accent-3 white-text" type="submit" name="action"">Register</button>
   </div>
+</div>
+<div class="login-box-footer">
+  <a href="" class="register-link hvr-grow" ng-click="register()"><i class="fa fa-sign-in"></i>Cadastre-se</a>
 </div>
 </div>
 </div>

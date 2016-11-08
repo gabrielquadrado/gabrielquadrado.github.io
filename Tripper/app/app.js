@@ -1,15 +1,13 @@
 var app = angular.module('app',['ngRoute']);
 app.config(function($routeProvider, $locationProvider)
 {
-	$locationProvider.html5Mode({
-	  enabled: true
-	});
+	$locationProvider.html5Mode(true);
 	$routeProvider
-	.when('/login',{
+	.when('/Tripper/login',{
 		templateUrl:'app/login/login.html',
 		controller:'loginCtrl',
 	})
-	.when('/dashboard',{
+	.when('/Tripper/dashboard',{
 		templateUrl:'app/dashboard/dashboard.html',
 		controller:'dashboardCtrl',
 	})

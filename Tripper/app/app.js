@@ -3,12 +3,12 @@ app.config(function($routeProvider, $locationProvider)
 {
 	$locationProvider.html5Mode(true);
 	$routeProvider
-	.when('/Tripper/login',{
-		templateUrl:'app/login/login.html',
+	.when('/login',{
+		templateUrl:'/Tripper/app/login/login.html',
 		controller:'loginCtrl',
 	})
-	.when('/Tripper/dashboard',{
-		templateUrl:'app/dashboard/dashboard.html',
+	.when('/dashboard',{
+		templateUrl:'/Tripper/app/dashboard/dashboard.html',
 		controller:'dashboardCtrl',
 	})
 	.otherwise ({ redirectTo: '/' });

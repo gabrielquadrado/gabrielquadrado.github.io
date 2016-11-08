@@ -1,10 +1,8 @@
-angular.module('Tripper',[]).controller('loginCtrl', function($scope){
+angular.module('app').controller('loginCtrl', function($rootScope, $scope, $location){
 	$(document).ready(function(){
 		$scope.name='';
 		$scope.email='';
 		$scope.password='';
-	   	$('.parallax').parallax();
-	   	jQuery.scrollSpeed(100, 800);
 		console.log('ESCOPO: ',$scope);
 
 	   	$scope.login = function(){

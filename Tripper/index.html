@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-BR" ng-app="Tripper">
+<html lang="pt-BR" ng-app="app">
 <head>
-    <title>Tripper - Login</title>
+    <title>Tripper</title>
+    <link rel="shortcut icon" type="image/png" href="/src/img/fav.png"/>
+    <!-- Javascript vendor -->
     <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
     <script type="text/javascript" src="lib/jquery.smoothwheel.js"></script>
     <script type="text/javascript" src="lib/jquery.scrollSpeed.js"></script>
     <script type="text/javascript" src="lib/angular.min.js"></script>
-    <script type="text/javascript" src="src/js/loginCtrl.js"></script>
+    <script type="text/javascript" src="lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="lib/firebase.js"></script>
+    <script type="text/javascript" src="lib/angularfire.min.js"></script>
+    <script type="text/javascript" src="lib/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+    <!-- Controllers -->
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/login/loginCtrl.js"></script>
+    <!-- CSS vendor -->
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="lib/materialize/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="lib/animate.css">
     <link rel="stylesheet" type="text/css" href="lib/hover.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/jvectormap/jquery-jvectormap-2.0.3.css">
+    <!-- Personal CSS -->
     <link rel="stylesheet" type="text/css" href="lib/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <!-- Firebase initialize -->
     <script>
-      // Initialize Firebase
       var config = {
         apiKey: "AIzaSyARRLru4UTFQRgjZRSNFrXo6PoJHrcU0ZY",
         authDomain: "tripper-426b6.firebaseapp.com",
@@ -27,33 +37,7 @@
       firebase.initializeApp(config);
     </script>
 </head>
-<body ng-controller="loginCtrl">
-<div class="login-box animated fadeIn">
-<div class="login-box-header">
-  <h2 class="thin">TRIPPER</h2>
-</div>
-<div class="login-box-content">
-  <div class="hide input-field col s12 animated fadeIn">
-    <label for="name">Name</label>
-    <input id="name" type="text" class="input" ng-model="name">
-  </div>
-  <div class="input-field col s12">
-    <label for="email">Email</label>
-    <input id="email" type="email" class="input" ng-model="email">
-  </div>
-  <div class="input-field col s12">
-    <label for="password">Password</label>
-    <input id="password" type="password" class="input" ng-model="password">
-  </div>
-  <div class="input-field col s12">
-    <button id="btn-login" class="btn-flat waves-effect waves-light green accent-3 white-text" type="submit" name="action" ng-click="login()">Login</button>
-    <button id="btn-register" class="hide btn-flat waves-effect waves-light green accent-3 white-text" type="submit" name="action"">Register</button>
-  </div>
-</div>
-<div class="login-box-footer">
-  <a href="" class="register-link hvr-grow" ng-click="register()"><i class="fa fa-sign-in"></i>Cadastre-se</a>
-</div>
-</div>
-</div>
+<body>
+<div ng-view></div>
 </body>
 </html>

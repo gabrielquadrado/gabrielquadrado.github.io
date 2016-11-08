@@ -5,7 +5,7 @@ app.config(function($routeProvider, $locationProvider)
 	  enabled: true
 	});
 	$routeProvider
-	.when('/',{
+	.when('/login',{
 		templateUrl:'app/login/login.html',
 		controller:'loginCtrl',
 	})

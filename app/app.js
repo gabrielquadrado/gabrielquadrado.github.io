@@ -4,8 +4,8 @@ app.config(function($routeProvider, $locationProvider)
 	$locationProvider.html5Mode(true);
 	$routeProvider
 	.when('/',{
-		templateUrl:'app/location/location.html',
-		controller:'locationCtrl',
+		templateUrl:'app/login/login.html',
+		controller:'loginCtrl',
 	})
 	.when('/login',{
 		templateUrl:'app/login/login.html',

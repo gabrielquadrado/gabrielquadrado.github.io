@@ -1,0 +1,68 @@
+body {
+	background-color: #aad8b0;
+}
+h2 {
+    margin: 0px;
+    line-height: 80px;
+}
+.mt2{
+	margin-top: 2px!important;
+}
+.input-field.col label {
+    left: 0;
+}
+.login-box{
+	width: 500px;
+	height: 400px;
+	text-align: center;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.login-box-header{
+	background-color: white;
+	height: 80px;
+	line-height: 80px;
+	border-radius: 20px;
+	margin-bottom: 3px;
+}
+.login-box-content{
+	background-color: white;
+	width: 500px;
+	height: auto;
+	border-radius: 20px;
+	padding: 20px 30px 20px 30px;
+	transition: height 1s ease;
+}
+.login-box-footer{
+	margin-top: 10px;
+	font-size: 14px;
+}
+#btn-login, #btn-register{
+	background-color: #ff5353!important;
+}
+.login-box-footer a{
+	color: white;
+}
+.login-box-footer i{
+	margin-right: 5px;
+}
+.input:focus{
+	border-bottom: 1px solid #aad8b0!important;
+	box-shadow: 0 1px 0 0 #aad8b0!important;
+}
+#world-map{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+img{
+	width: 100%;
+}
+.img-container{
+	height: 400px;
+	overflow: hidden;
+}

@@ -3,9 +3,46 @@ html {
 }
 body {
 	background-color: #afafaf;
-	padding: 50px;
 	text-align: center;
+	margin: 0;
+	padding: 0;
 }
+.video-section .pattern-overlay {
+	background-color: rgba(71, 71, 71, 0.59);
+	padding: 110px 0 32px;
+	min-height: 295px; 
+}
+.video-section h1{
+	text-align:center;
+	color:#fff;
+    font-size: 150px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: lighter;
+    margin: 15px auto 0px;
+    text-shadow: 1px 1px 1px #000;
+    -webkit-text-shadow: 1px 1px 1px #000;
+    -moz-text-shadow: 1px 1px 1px #000;
+}
+@media screen and (max-width: 1460px) 
+{
+  .video-section h1 {
+  	font-size: 120px !important;
+  }
+}
+@media screen and (max-width: 1188px) 
+{
+  .video-section h1 {
+  	font-size: 105px !important;
+  }
+}
+@media screen and (max-width: 1030px) 
+{
+  .video-section h1 {
+  	font-size: 92px !important;
+  }
+}
+.video-section .buttonBar{display:none;}
+.player {font-size: 1px;}
 .icon-button {
 	background-color: white;
 	border-radius: 3.6rem;
@@ -22,6 +59,9 @@ body {
 	    -ms-user-select: none;
 	        user-select: none;
 	width: 3.6rem;
+}
+.general-container {
+	margin-top: -36px;
 }
 .icon-button span {
 	border-radius: 0;

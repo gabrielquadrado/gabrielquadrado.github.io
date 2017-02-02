@@ -1,47 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR" ng-app="app">
+<html >
 <head>
-    <title>Tripper</title>
-    <link rel="shortcut icon" type="image/png" href="/src/img/fav.png"/>
-    <!-- Javascript vendor -->
-    <script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="lib/jquery.smoothwheel.js"></script>
-    <script type="text/javascript" src="lib/jquery.scrollSpeed.js"></script>
-    <script type="text/javascript" src="lib/angular.min.js"></script>
-    <script type="text/javascript" src="lib/angular-route.min.js"></script>
-    <script type="text/javascript" src="lib/firebase.js"></script>
-    <script type="text/javascript" src="lib/angularfire.min.js"></script>
-    <script type="text/javascript" src="lib/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-    <script type="text/javascript" src="lib/jvectormap/world-mill.js"></script>
-    <!-- Controllers -->
-    <script type="text/javascript" src="app/app.js"></script>
-    <script type="text/javascript" src="app/login/loginCtrl.js"></script>
-    <script type="text/javascript" src="app/dashboard/dashboardCtrl.js"></script>
-    <script type="text/javascript" src="app/location/locationCtrl.js"></script>
-    <!-- CSS vendor -->
-    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/materialize/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/animate.css">
-    <link rel="stylesheet" type="text/css" href="lib/hover.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/jvectormap/jquery-jvectormap-2.0.3.css">
-    <!-- Personal CSS -->
-    <link rel="stylesheet" type="text/css" href="lib/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- Firebase initialize -->
-    <script>
-      var config = {
-        apiKey: "AIzaSyARRLru4UTFQRgjZRSNFrXo6PoJHrcU0ZY",
-        authDomain: "tripper-426b6.firebaseapp.com",
-        databaseURL: "https://tripper-426b6.firebaseio.com",
-        storageBucket: "tripper-426b6.appspot.com",
-        messagingSenderId: "449032740177"
-      };
-      firebase.initializeApp(config);
-    </script>
-    <base href="/login"/>
+  <meta charset="UTF-8">
+  <title>Gabriel Quadrado</title>
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css'>
+   <link rel="stylesheet" href="css/style.css">  
 </head>
 <body>
-<div ng-view></div>
+	<div class="general-container">
+		<div class="buttons-container">
+			<a href="#" class="icon-button linkedin"><i class="fa fa-linkedin"></i><span></span></a>
+			<a href="#" class="icon-button github"><i class="fa fa-github"></i><span></span></a>
+			<a href="#" class="icon-button skype"><i class="fa fa-skype"></i><span></span></a>
+			<a href="#" class="icon-button facebook"><i class="fa fa-facebook"></i><span></span></a>
+			<a href="#" class="icon-button youtube-play"><i class="fa fa-youtube-play"></i><span></span></a>
+			<a href="#" class="icon-button instagram"><i class="fa fa-instagram"></i><span></span></a>
+			<a href="#" class="icon-button envelope"><i class="fa fa-envelope"></i><span></span></a>
+			<a href="#" class="icon-button phone"><i class="fa fa-phone"></i><span></span></a>
+		</div>
+	</div>
+<script src="js/index.js"></script>
 </body>
 </html>

@@ -1,3 +1,9 @@
+@font-face {
+	font-family: Basic Title;
+	src: local("Basic Title"),
+	url(../vendor/basic_title_font/basictitlefont.ttf);
+	font-weight: bold;
+}
 html {
 	font-size: 20px;
 }
@@ -6,43 +12,23 @@ body {
 	text-align: center;
 	margin: 0;
 	padding: 0;
+	background: url(../img/thumbs.png) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
-.video-section .pattern-overlay {
-	background-color: rgba(71, 71, 71, 0.59);
-	padding: 110px 0 32px;
-	min-height: 295px; 
+.player {
+	z-index: -99;
 }
-.video-section h1{
-	text-align:center;
-	color:#fff;
-    font-size: 150px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: lighter;
-    margin: 15px auto 0px;
-    text-shadow: 1px 1px 1px #000;
-    -webkit-text-shadow: 1px 1px 1px #000;
-    -moz-text-shadow: 1px 1px 1px #000;
+h1 {
+	color: white;
+	font-size: 110px;
+	padding: 0;
+	margin: 15px;
+	line-height: 100px;
+	font-family: 'Basic Title', sans-serif;
 }
-@media screen and (max-width: 1460px) 
-{
-  .video-section h1 {
-  	font-size: 120px !important;
-  }
-}
-@media screen and (max-width: 1188px) 
-{
-  .video-section h1 {
-  	font-size: 105px !important;
-  }
-}
-@media screen and (max-width: 1030px) 
-{
-  .video-section h1 {
-  	font-size: 92px !important;
-  }
-}
-.video-section .buttonBar{display:none;}
-.player {font-size: 1px;}
 .icon-button {
 	background-color: white;
 	border-radius: 3.6rem;
@@ -61,7 +47,8 @@ body {
 	width: 3.6rem;
 }
 .general-container {
-	margin-top: -36px;
+	z-index: 100000;
+	margin-top: 20%;
 }
 .icon-button span {
 	border-radius: 0;

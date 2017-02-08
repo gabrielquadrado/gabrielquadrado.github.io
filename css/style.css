@@ -18,6 +18,30 @@ body {
 	-o-background-size: cover;
 	background-size: cover;
 }
+/*RESPONSIVO*/
+body.mobile h1 {
+	font-size: 200px;
+	margin: 15px;
+	line-height: 200px;
+}
+body.mobile .icon-button {
+	height: 210px;
+	width: 210px;
+	margin: 25px;
+}
+body.mobile .icon-button i{
+	font-size: 100px;
+}
+body.mobile .icon-button:hover span {
+	height: 214px;
+	width: 214px;
+	border-radius: 50%;
+	margin: -107px;
+}
+body.mobile .general-container {
+	margin-top: 12%;
+}
+/*FIM DE RESPONSIVO*/
 .player {
 	z-index: -99;
 }
@@ -28,11 +52,6 @@ h1 {
 	margin: 15px;
 	line-height: 100px;
 	font-family: 'Basic Title', sans-serif;
-}
-body.mobile h1 {
-	font-size: 180px;
-	margin: 15px;
-	line-height: 170px;
 }
 .icon-button {
 	background-color: white;
@@ -50,14 +69,6 @@ body.mobile h1 {
 	    -ms-user-select: none;
 	        user-select: none;
 	width: 72px;
-}
-body.mobile .icon-button {
-	height: 210px;
-	width: 210px;
-	margin: 25px;
-}
-body.mobile .icon-button i{
-	font-size: 100px;
 }
 .general-container {
 	z-index: 100000;
@@ -82,12 +93,6 @@ body.mobile .icon-button i{
 	height: 74px;
 	border-radius: 50%;
 	margin: -37px;
-}
-body.mobile .icon-button:hover span {
-	height: 210px;
-	width: 210px;
-	border-radius: 50%;
-	margin: -105px;
 }
 .icon-button i {
 	background: none;

@@ -28,9 +28,12 @@ body.mobile .icon-button {
 	height: 210px;
 	width: 210px;
 	margin: 25px;
+	font-size: 110px;
 }
-body.mobile .icon-button i{
-	font-size: 100px;
+body.mobile .icon-button i {
+	height: 210px;
+	line-height: 210px;
+	width: 210px;
 }
 body.mobile .icon-button:hover span {
 	height: 214px;
@@ -97,16 +100,16 @@ h1 {
 .icon-button i {
 	background: none;
 	color: white;
-	height: 210px;
+	height: 72px;
 	left: 0;
-	line-height: 210px;
+	line-height: 72px;
 	position: absolute;
 	top: 0;
 	-webkit-transition: all 0.3s;
 	   -moz-transition: all 0.3s;
 	     -o-transition: all 0.3s;
 	        transition: all 0.3s;
-	width: 210px;
+	width: 72px;
 	z-index: 10;
 }
 .facebook span {
